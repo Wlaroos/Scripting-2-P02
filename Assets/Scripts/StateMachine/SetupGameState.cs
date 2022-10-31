@@ -12,6 +12,9 @@ public class SetupGameState : GameState
 
     public override void Enter()
     {
+        // Only here to stop warnings for "Not using the variable"
+        _testVar = _testVar2;
+
         Debug.Log("Setup: ...Entering");
         Debug.Log("------------------");
         // CANT change state while still in Enter()/Exit() transition!
