@@ -46,7 +46,8 @@ public class Dice : MonoBehaviour
         {
             _thrown = true;
             _rb.useGravity = true;
-            _rb.AddTorque(Random.Range(0,500), Random.Range(0, 500), Random.Range(0, 500));
+            _rb.AddTorque(Random.Range(200, 500), Random.Range(200, 500), Random.Range(200, 500));
+            _rb.AddForce(Random.Range(-100, 100), 0, Random.Range(50, 150));
         }
         else if(_thrown && _hasLanded)
         {
@@ -67,7 +68,8 @@ public class Dice : MonoBehaviour
         DiceReset();
         _thrown = true;
         _rb.useGravity = true;
-        _rb.AddTorque(Random.Range(0, 500), Random.Range(0, 500), Random.Range(0, 500));
+        _rb.AddTorque(Random.Range(200, 500), Random.Range(200, 500), Random.Range(200, 500));
+        _rb.AddForce(Random.Range(-200, 200), 0, Random.Range(50, 150));
     }
 
     public int GetDiceValue()
@@ -106,7 +108,7 @@ public class Dice : MonoBehaviour
             iValue = 6;
         }
 
-        //Debug.Log("eulerAngles: " + dieRotation.x + ", " + dieRotation.y + ", " + dieRotation.z + " Value: " + iValue);
+        Debug.Log("eulerAngles: " + dieRotation.x + ", " + dieRotation.y + ", " + dieRotation.z + " Value: " + iValue);
 
         _diceValue = iValue;
 
