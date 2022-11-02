@@ -84,8 +84,14 @@ public class PlayerTurnGameState : GameState
             // Adds score
             _diceTotalScore += diceValue;
 
-            // Unsubscribe from the event of the dice in the list that just returned their value
-            _diceRolledList[_diceResolved].DiceValueReturned -= OnDiceReturn;
+            // Unsubscribe from the event of the dice in the list that have returned their value
+            foreach (Dice dice in _diceRolledList)
+            {
+                if(dice.DiceValue > 0)
+                {
+                    dice.DiceValueReturned -= OnDiceReturn;
+                }
+            }
 
             _diceResolved++;
             Debug.Log("Roll " + _diceResolved + ": " + diceValue);

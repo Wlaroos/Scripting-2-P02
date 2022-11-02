@@ -31,9 +31,11 @@ public class Dice : MonoBehaviour
         //{
         //    RollDice();
         //}
+    }
 
-        // Set landed bool and call GetDiceValue() if the dice has stopped moving
-        if(_rb.IsSleeping() && !_hasLanded && _thrown)
+    private void FixedUpdate()
+    {
+        if (_rb.IsSleeping() && !_hasLanded && _thrown)
         {
             _hasLanded = true;
             _rb.isKinematic = true;
