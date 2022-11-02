@@ -1,16 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
-using System;
 
-public class PlayerTurnGameState : GameState
+public class DiceController : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI _playerTurnTextUI = null;
+
+    [SerializeField] Dice _diceRef;
+    [SerializeField] GameSM _SMRef;
+    [SerializeField] Vector3 _throwPosition = new Vector3(0, -4, 3.5f);
 
     // Amount of dice to roll
-    int _diceAmount = 2;
+    [SerializeField] int _diceAmount = 1;
 
     // Increments as dice stop moving and return their values
     int _diceResolved = 0;
@@ -23,51 +23,16 @@ public class PlayerTurnGameState : GameState
 
     bool _rolled = false;
 
-    int _playerTurnCount = 0;
-
-    public override void Enter()
+    public void StartRoll(int diceAmount)
     {
-        Debug.Log("Player Turn: ...Entering");
-        Debug.Log("------------------");
-
-        _playerTurnTextUI.gameObject.SetActive(true);
-
-        _playerTurnCount++;
-        _playerTurnTextUI.text = "Player Turn: " + _playerTurnCount.ToString();
-
-        // hook into events
-
-        StateMachine.Input.PressedConfirm += OnPressedConfirm;
-    }
-
-    public override void Tick()
-    {
-        //
-    }
-
-    public override void Exit()
-    {
-        _playerTurnTextUI.gameObject.SetActive(false);
-
-        // unhook from events
-        StateMachine.Input.PressedConfirm -= OnPressedConfirm;
-
-        Debug.Log("Player Turn: Exiting...");
-    }
-
-    void OnPressedConfirm()
-    {
-
-        StateMachine.DiceController.StartRoll(_diceAmount);
-
-/*        if (!_rolled)
+        if (!_rolled)
         {
             _rolled = true;
 
             // Insantiate and roll however many dice
-            for (int i = 0; i < _diceAmount; i++)
+            for (int i = 0; i < diceAmount; i++)
             {
-                Dice diceRef = Instantiate(StateMachine.Dice, new Vector3(0, -4, 3.5f), Quaternion.identity);
+                Dice diceRef = Instantiate(_diceRef, _throwPosition, Quaternion.identity);
 
                 // Subscribe to the event of the dice that was just spawned
                 diceRef.DiceValueReturned += OnDiceReturn;
@@ -77,10 +42,10 @@ public class PlayerTurnGameState : GameState
                 diceRef.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.cyan);
                 diceRef.RollDice();
             }
-        }*/
+        }
     }
 
-/*    void OnDiceReturn(int diceValue)
+    void OnDiceReturn(int diceValue)
     {
         // Does nothing if dice is stuck. Dice is rerolled internally.
         if (diceValue != -1)
@@ -91,7 +56,7 @@ public class PlayerTurnGameState : GameState
             // Unsubscribe from the event of the dice in the list that have returned their value
             foreach (Dice dice in _diceRolledList)
             {
-                if(dice.DiceValue > 0)
+                if (dice.DiceValue > 0)
                 {
                     dice.DiceValueReturned -= OnDiceReturn;
                 }
@@ -100,12 +65,13 @@ public class PlayerTurnGameState : GameState
             _diceResolved++;
             Debug.Log("Roll " + _diceResolved + ": " + diceValue);
 
-            if (_diceResolved == _diceAmount)
+            if (_diceResolved == _diceRolledList.Count)
             {
                 Debug.Log("Total Roll: " + _diceTotalScore);
                 // Set Player Roll in GameSM script (May be a better way to do this?)
-                StateMachine._playerRoll = _diceTotalScore;
-                StateMachine.ChangeState<EnemyTurnGameState>();
+
+                _SMRef._playerRoll = _diceTotalScore;
+                _SMRef.ChangeState<EnemyTurnGameState>();
 
                 // Reset values
                 _diceRolledList.Clear();
@@ -114,5 +80,6 @@ public class PlayerTurnGameState : GameState
                 _rolled = false;
             }
         }
-    }*/
+    }
+
 }
