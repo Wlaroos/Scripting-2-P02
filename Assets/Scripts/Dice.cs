@@ -17,28 +17,6 @@ public class Dice : MonoBehaviour
     protected int _diceValue;
     public int DiceValue => _diceValue;
 
-    private void OnEnable()
-    {
-        EnemyTurnGameState.EnemyTurnBegan += OnEnemyTurnBegan;
-        EnemyTurnGameState.EnemyTurnEnded += OnEnemyTurnEnded;
-    }
-
-    private void OnDisable()
-    {
-        EnemyTurnGameState.EnemyTurnBegan -= OnEnemyTurnBegan;
-        EnemyTurnGameState.EnemyTurnEnded -= OnEnemyTurnEnded;
-    }
-
-    private void OnEnemyTurnBegan()
-    {
-        //Destroy(gameObject);
-    }
-
-    private void OnEnemyTurnEnded()
-    {
-        Destroy(gameObject);
-    }
-
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
@@ -48,11 +26,13 @@ public class Dice : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            RollDice();
-        }
+        // FOR TESTING
+        //if(Input.GetKeyDown(KeyCode.R))
+        //{
+        //    RollDice();
+        //}
 
+        // Set landed bool and call GetDiceValue() if the dice has stopped moving
         if(_rb.IsSleeping() && !_hasLanded && _thrown)
         {
             _hasLanded = true;
@@ -60,7 +40,8 @@ public class Dice : MonoBehaviour
             _rb.useGravity = false;
             GetDiceValue();
         }
-        else if(_rb.IsSleeping() && _hasLanded && _diceValue == -1)
+        // If the dice stopped moving and is stuck, reroll the dice
+        else if (_rb.IsSleeping() && _hasLanded && _diceValue == -1)
         {
             RollAgain();
         }
@@ -68,6 +49,8 @@ public class Dice : MonoBehaviour
 
     public void RollDice()
     {
+        // Set rigidbody bools to allow movement, add force + torque
+        // Will not roll if the dice is in the process of being thrown or already landed
         if(!_thrown && !_hasLanded)
         {
             _thrown = true;
@@ -82,6 +65,7 @@ public class Dice : MonoBehaviour
         }
     }
 
+    // Resets all transform and rigidbody values and bools of the dice
     void DiceReset()
     {
         transform.position = initPosition;
@@ -92,6 +76,7 @@ public class Dice : MonoBehaviour
         _rb.useGravity = false;
     }
 
+    // Exact same as RollDice(), but runs DiceReset() first. Makes the reroll automatic for stuck dice
     void RollAgain()
     {
         DiceReset();
@@ -102,6 +87,9 @@ public class Dice : MonoBehaviour
         _rb.AddForce(UnityEngine.Random.Range(-200, 200), 0, UnityEngine.Random.Range(75, 200));
     }
 
+    // Testing different directions to set a value to the dice. Will return -1 if stuck
+
+    // Could possibly make new dice with different values as long as I replace the dots on the dice relative to the new values
     public int GetDiceValue()
     {
         int iValue = -1;
@@ -145,6 +133,28 @@ public class Dice : MonoBehaviour
         DiceValueReturned?.Invoke(_diceValue);
 
         return iValue;
+    }
+
+    private void OnEnable()
+    {
+        EnemyTurnGameState.EnemyTurnBegan += OnEnemyTurnBegan;
+        EnemyTurnGameState.EnemyTurnEnded += OnEnemyTurnEnded;
+    }
+
+    private void OnDisable()
+    {
+        EnemyTurnGameState.EnemyTurnBegan -= OnEnemyTurnBegan;
+        EnemyTurnGameState.EnemyTurnEnded -= OnEnemyTurnEnded;
+    }
+
+    private void OnEnemyTurnBegan()
+    {
+        //Destroy(gameObject);
+    }
+
+    private void OnEnemyTurnEnded()
+    {
+        Destroy(gameObject);
     }
 
 }
