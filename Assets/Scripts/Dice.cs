@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Dice : MonoBehaviour
 {
+    public event Action<int> DiceValueReturned = delegate { };
+
     Rigidbody _rb;
 
     bool _hasLanded;
@@ -13,6 +16,28 @@ public class Dice : MonoBehaviour
 
     protected int _diceValue;
     public int DiceValue => _diceValue;
+
+    private void OnEnable()
+    {
+        EnemyTurnGameState.EnemyTurnBegan += OnEnemyTurnBegan;
+        EnemyTurnGameState.EnemyTurnEnded += OnEnemyTurnEnded;
+    }
+
+    private void OnDisable()
+    {
+        EnemyTurnGameState.EnemyTurnBegan -= OnEnemyTurnBegan;
+        EnemyTurnGameState.EnemyTurnEnded -= OnEnemyTurnEnded;
+    }
+
+    private void OnEnemyTurnBegan()
+    {
+        //Destroy(gameObject);
+    }
+
+    private void OnEnemyTurnEnded()
+    {
+        Destroy(gameObject);
+    }
 
     private void Awake()
     {
@@ -31,23 +56,25 @@ public class Dice : MonoBehaviour
         if(_rb.IsSleeping() && !_hasLanded && _thrown)
         {
             _hasLanded = true;
+            _rb.isKinematic = true;
             _rb.useGravity = false;
             GetDiceValue();
         }
-        else if(_rb.IsSleeping() && _hasLanded && _diceValue == 0)
+        else if(_rb.IsSleeping() && _hasLanded && _diceValue == -1)
         {
             RollAgain();
         }
     }
 
-    void RollDice()
+    public void RollDice()
     {
         if(!_thrown && !_hasLanded)
         {
             _thrown = true;
+            _rb.isKinematic = false;
             _rb.useGravity = true;
-            _rb.AddTorque(Random.Range(200, 500), Random.Range(200, 500), Random.Range(200, 500));
-            _rb.AddForce(Random.Range(-100, 100), 0, Random.Range(50, 150));
+            _rb.AddTorque(UnityEngine.Random.Range(0, 750), UnityEngine.Random.Range(0, 750), UnityEngine.Random.Range(0, 750));
+            _rb.AddForce(UnityEngine.Random.Range(-200, 200), 0, UnityEngine.Random.Range(75, 200));
         }
         else if(_thrown && _hasLanded)
         {
@@ -58,6 +85,8 @@ public class Dice : MonoBehaviour
     void DiceReset()
     {
         transform.position = initPosition;
+        transform.rotation = Quaternion.identity;
+        _rb.isKinematic = true;
         _thrown = false;
         _hasLanded = false;
         _rb.useGravity = false;
@@ -67,9 +96,10 @@ public class Dice : MonoBehaviour
     {
         DiceReset();
         _thrown = true;
+        _rb.isKinematic = false;
         _rb.useGravity = true;
-        _rb.AddTorque(Random.Range(200, 500), Random.Range(200, 500), Random.Range(200, 500));
-        _rb.AddForce(Random.Range(-200, 200), 0, Random.Range(50, 150));
+        _rb.AddTorque(UnityEngine.Random.Range(0, 750), UnityEngine.Random.Range(0, 750), UnityEngine.Random.Range(0, 750));
+        _rb.AddForce(UnityEngine.Random.Range(-200, 200), 0, UnityEngine.Random.Range(75, 200));
     }
 
     public int GetDiceValue()
@@ -108,9 +138,11 @@ public class Dice : MonoBehaviour
             iValue = 6;
         }
 
-        Debug.Log("eulerAngles: " + dieRotation.x + ", " + dieRotation.y + ", " + dieRotation.z + " Value: " + iValue);
+        //Debug.Log("eulerAngles: " + dieRotation.x + ", " + dieRotation.y + ", " + dieRotation.z + " Value: " + iValue);
 
         _diceValue = iValue;
+
+        DiceValueReturned?.Invoke(_diceValue);
 
         return iValue;
     }

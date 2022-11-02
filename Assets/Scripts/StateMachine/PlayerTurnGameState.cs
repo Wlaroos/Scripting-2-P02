@@ -9,6 +9,13 @@ public class PlayerTurnGameState : GameState
 {
     [SerializeField] TextMeshProUGUI _playerTurnTextUI = null;
 
+    [SerializeField] int _diceAmount = 1;
+    int _diceResolved = 0;
+    int _diceTotalScore = 0;
+    List<Dice> _diceRolledList = new List<Dice>();
+
+    bool _rolled = false;
+
     int _playerTurnCount = 0;
 
     public override void Enter()
@@ -43,6 +50,37 @@ public class PlayerTurnGameState : GameState
 
     void OnPressedConfirm()
     {
-        StateMachine.ChangeState<EnemyTurnGameState>();
+        if (!_rolled)
+        {
+            _rolled = true;
+            for (int i = 0; i < _diceAmount; i++)
+            {
+                Dice diceRef = Instantiate(StateMachine.Dice, new Vector3(0, -4, 3.5f), Quaternion.identity);
+                diceRef.DiceValueReturned += OnDiceReturn;
+                _diceRolledList.Add(diceRef);
+                diceRef.GetComponent<MeshRenderer>().material.SetColor("_Color", UnityEngine.Random.ColorHSV());
+                diceRef.RollDice();
+            }
+        }
+    }
+
+    void OnDiceReturn(int diceValue)
+    {
+        if (diceValue != -1)
+        {
+            _diceTotalScore += diceValue;
+            _diceResolved++;
+            Debug.Log("Roll " + _diceResolved + ": " + diceValue);
+
+            if (_diceResolved == _diceAmount)
+            {
+                Debug.Log("Total Roll: " + _diceTotalScore);
+                StateMachine.ChangeState<EnemyTurnGameState>();
+
+                _diceTotalScore = 0;
+                _diceResolved = 0;
+                _rolled = false;
+            }
+        }
     }
 }
