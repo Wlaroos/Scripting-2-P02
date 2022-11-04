@@ -2,24 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SetupGameState : GameState
+public class InitialStatRollState : GameState
 {
-
-    [SerializeField] int _testVar = 2;
-    [SerializeField] int _testVar2 = 3;
 
     bool _activated = false;
 
     public override void Enter()
     {
         // Only here to stop warnings for "Not using the variable"
-        _testVar = _testVar2;
 
-        Debug.Log("Setup: ...Entering");
+        Debug.Log("ROLL FOR YOUR STATS!");
         Debug.Log("------------------");
         // CANT change state while still in Enter()/Exit() transition!
         // DONT put ChangeState<> here.
         _activated = false;
+
+        StateMachine.Input.PressedConfirm += OnPressedConfirm;
     }
 
     public override void Tick()
@@ -28,15 +26,19 @@ public class SetupGameState : GameState
         if(_activated == false)
         {
             _activated = true;
-            //StateMachine.ChangeState<PlayerTurnGameState>();
-            StateMachine.ChangeState<InitialStatRollState>();
         }
     }
 
     public override void Exit()
     {
+        StateMachine.Input.PressedConfirm -= OnPressedConfirm;
         _activated = false;
-        Debug.Log("Setup: Exiting...");
+    }
+
+
+    void OnPressedConfirm()
+    {
+        StateMachine.DiceController.StartRoll(5);
     }
 
 }

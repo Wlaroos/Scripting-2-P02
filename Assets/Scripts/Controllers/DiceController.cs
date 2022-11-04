@@ -9,6 +9,8 @@ public class DiceController : MonoBehaviour
     [SerializeField] GameSM _SMRef;
     [SerializeField] Vector3 _throwPosition = new Vector3(0, -4, 3.5f);
 
+    private Color[] _statColors = new Color[] {new Color(1,0,0), new Color(1,.65f,0), new Color(1,1,0), new Color(0,0,1), new Color(.6f,0.1f,1), };
+
     // Amount of dice to roll
     [SerializeField] int _diceAmount = 1;
 
@@ -38,19 +40,54 @@ public class DiceController : MonoBehaviour
                 diceRef.DiceValueReturned += OnDiceReturn;
 
                 _diceRolledList.Add(diceRef);
+
+                switch (_SMRef.CurrentState)
+                {
+                    case InitialStatRollState:
+                        diceRef.GetComponent<MeshRenderer>().material.SetColor("_Color", _statColors[i]);
+                        break;
+                    case EnemyTurnGameState:
+                        diceRef.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.red);
+                        break;
+                    case PlayerTurnGameState:
+                        diceRef.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.cyan);
+                        break;
+                }
+
                 //diceRef.GetComponent<MeshRenderer>().material.SetColor("_Color", UnityEngine.Random.ColorHSV());
-                diceRef.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.cyan);
+
                 diceRef.RollDice();
             }
         }
     }
 
-    void OnDiceReturn(int diceValue)
+    void OnDiceReturn(int diceValue, Color diceColor)
     {
         // Does nothing if dice is stuck. Dice is rerolled internally.
         if (diceValue != -1)
         {
             // Adds score
+            if(_SMRef.CurrentState == _SMRef.GetComponent<InitialStatRollState>())
+            {
+                switch (diceColor)
+                {
+                    case Color when _statColors[0] == diceColor:
+                        _SMRef.SetStat(0, diceValue);
+                        break;
+                    case Color when _statColors[1] == diceColor:
+                        _SMRef.SetStat(1, diceValue);
+                        break;
+                    case Color when _statColors[2] == diceColor:
+                        _SMRef.SetStat(2, diceValue);
+                        break;
+                    case Color when _statColors[3] == diceColor:
+                        _SMRef.SetStat(3, diceValue);
+                        break;
+                    case Color when _statColors[4] == diceColor:
+                        _SMRef.SetStat(4, diceValue);
+                        break;
+                }
+            }
             _diceTotalScore += diceValue;
 
             // Unsubscribe from the event of the dice in the list that have returned their value
@@ -68,10 +105,22 @@ public class DiceController : MonoBehaviour
             if (_diceResolved == _diceRolledList.Count)
             {
                 Debug.Log("Total Roll: " + _diceTotalScore);
-                // Set Player Roll in GameSM script (May be a better way to do this?)
 
-                _SMRef._playerRoll = _diceTotalScore;
-                _SMRef.ChangeState<EnemyTurnGameState>();
+                switch (_SMRef.CurrentState)
+                {
+                    case InitialStatRollState:
+                        //_SMRef._playerRoll = _diceTotalScore;
+                        _SMRef.ChangeState<PlayerTurnGameState>();
+                        break;
+                    case EnemyTurnGameState:
+                        _SMRef.SetEnemyRoll(_diceTotalScore);
+                        _SMRef.ChangeState<EnemyTurnGameState>();
+                        break;
+                    case PlayerTurnGameState:
+                        _SMRef.SetPlayerRoll(_diceTotalScore);
+                        _SMRef.ChangeState<EnemyTurnGameState>();
+                        break;
+                }
 
                 // Reset values
                 _diceRolledList.Clear();

@@ -5,9 +5,10 @@ using System;
 
 public class Dice : MonoBehaviour
 {
-    public event Action<int> DiceValueReturned = delegate { };
+    public event Action<int,Color> DiceValueReturned = delegate { };
 
     Rigidbody _rb;
+    MeshRenderer _mr;
 
     bool _hasLanded;
     bool _thrown;
@@ -20,6 +21,7 @@ public class Dice : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
+        _mr = GetComponent<MeshRenderer>();
         initPosition = transform.position;
         _rb.useGravity = false;
     }
@@ -92,7 +94,7 @@ public class Dice : MonoBehaviour
     // Testing different directions to set a value to the dice. Will return -1 if stuck
 
     // Could possibly make new dice with different values as long as I replace the dots on the dice relative to the new values
-    public int GetDiceValue()
+    public (int,Color) GetDiceValue()
     {
         int iValue = -1;
         Vector3 dieRotation = gameObject.transform.eulerAngles;
@@ -132,9 +134,9 @@ public class Dice : MonoBehaviour
 
         _diceValue = iValue;
 
-        DiceValueReturned?.Invoke(_diceValue);
+        DiceValueReturned?.Invoke(_diceValue, _mr.material.color);
 
-        return iValue;
+        return (iValue, _mr.material.color);
     }
 
     private void OnEnable()

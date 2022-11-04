@@ -12,17 +12,6 @@ public class PlayerTurnGameState : GameState
     // Amount of dice to roll
     int _diceAmount = 2;
 
-    // Increments as dice stop moving and return their values
-    int _diceResolved = 0;
-
-    // Sum of all rolls
-    int _diceTotalScore = 0;
-
-    // List of all dice objects for the turn
-    List<Dice> _diceRolledList = new List<Dice>();
-
-    bool _rolled = false;
-
     int _playerTurnCount = 0;
 
     public override void Enter()
@@ -57,62 +46,7 @@ public class PlayerTurnGameState : GameState
 
     void OnPressedConfirm()
     {
-
         StateMachine.DiceController.StartRoll(_diceAmount);
-
-/*        if (!_rolled)
-        {
-            _rolled = true;
-
-            // Insantiate and roll however many dice
-            for (int i = 0; i < _diceAmount; i++)
-            {
-                Dice diceRef = Instantiate(StateMachine.Dice, new Vector3(0, -4, 3.5f), Quaternion.identity);
-
-                // Subscribe to the event of the dice that was just spawned
-                diceRef.DiceValueReturned += OnDiceReturn;
-
-                _diceRolledList.Add(diceRef);
-                //diceRef.GetComponent<MeshRenderer>().material.SetColor("_Color", UnityEngine.Random.ColorHSV());
-                diceRef.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.cyan);
-                diceRef.RollDice();
-            }
-        }*/
     }
 
-/*    void OnDiceReturn(int diceValue)
-    {
-        // Does nothing if dice is stuck. Dice is rerolled internally.
-        if (diceValue != -1)
-        {
-            // Adds score
-            _diceTotalScore += diceValue;
-
-            // Unsubscribe from the event of the dice in the list that have returned their value
-            foreach (Dice dice in _diceRolledList)
-            {
-                if(dice.DiceValue > 0)
-                {
-                    dice.DiceValueReturned -= OnDiceReturn;
-                }
-            }
-
-            _diceResolved++;
-            Debug.Log("Roll " + _diceResolved + ": " + diceValue);
-
-            if (_diceResolved == _diceAmount)
-            {
-                Debug.Log("Total Roll: " + _diceTotalScore);
-                // Set Player Roll in GameSM script (May be a better way to do this?)
-                StateMachine._playerRoll = _diceTotalScore;
-                StateMachine.ChangeState<EnemyTurnGameState>();
-
-                // Reset values
-                _diceRolledList.Clear();
-                _diceTotalScore = 0;
-                _diceResolved = 0;
-                _rolled = false;
-            }
-        }
-    }*/
 }

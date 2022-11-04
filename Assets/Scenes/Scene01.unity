@@ -1942,6 +1942,7 @@ GameObject:
   - component: {fileID: 2042458210}
   - component: {fileID: 2042458212}
   - component: {fileID: 2042458213}
+  - component: {fileID: 2042458214}
   m_Layer: 0
   m_Name: StateController
   m_TagString: Untagged
@@ -1995,6 +1996,11 @@ MonoBehaviour:
   _dice: {fileID: 8812588664176603488, guid: 12c90809b4b27cc4594585c873d9a454, type: 3}
   _playerRoll: 0
   _enemyRoll: 0
+  _str: 0
+  _dex: 0
+  _con: 0
+  _int: 0
+  _cha: 0
 --- !u!114 &2042458212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2021,3 +2027,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pauseDuration: 1.5
+--- !u!114 &2042458214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042458208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a9e561412df740459820ce12f8b60ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
