@@ -16,7 +16,7 @@ public class EnemyTurnGameState : GameState
 
     public override void Enter()
     {
-        base.Enter();
+        StateMachine.UIController._stateMarkerTextUI.text = "[Enemy Turn State]";
         Debug.Log("Enemy Turn: ...Enter");
         EnemyTurnBegan?.Invoke();
 
@@ -30,7 +30,6 @@ public class EnemyTurnGameState : GameState
 
     public override void Exit()
     {
-        base.Exit();
         Debug.Log("Enemy Turn: Exit...");
     }
 

@@ -117,14 +117,16 @@ public class DiceController : MonoBehaviour
                 switch (_SMRef.CurrentState)
                 {
                     case InitialStatRollState:
-                        //_SMRef._playerRoll = _diceTotalScore;
+                        _SMRef.OnStateExit();
                         _SMRef.ChangeState<PlayerTurnGameState>();
                         break;
                     case EnemyTurnGameState:
+                        _SMRef.OnStateExit();
                         _SMRef.SetEnemyRoll(_diceTotalScore);
                         _SMRef.ChangeState<PlayerTurnGameState>();
                         break;
                     case PlayerTurnGameState:
+                        _SMRef.OnStateExit();
                         _SMRef.SetPlayerRoll(_diceTotalScore);
                         _SMRef.ChangeState<EnemyTurnGameState>();
                         break;

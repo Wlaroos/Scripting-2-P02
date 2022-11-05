@@ -16,7 +16,7 @@ public class PlayerTurnGameState : GameState
 
     public override void Enter()
     {
-        base.Enter();
+        StateMachine.UIController._stateMarkerTextUI.text = "[Player Turn State]";
         Debug.Log("Player Turn: ...Entering");
         Debug.Log("------------------");
 
@@ -37,7 +37,6 @@ public class PlayerTurnGameState : GameState
 
     public override void Exit()
     {
-        base.Exit();
         _playerTurnTextUI.gameObject.SetActive(false);
 
         // unhook from events

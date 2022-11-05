@@ -5,17 +5,11 @@ using UnityEngine;
 public class SetupGameState : GameState
 {
 
-    [SerializeField] int _testVar = 2;
-    [SerializeField] int _testVar2 = 3;
-
     bool _activated = false;
 
     public override void Enter()
     {
-        base.Enter();
-        // Only here to stop warnings for "Not using the variable"
-        _testVar = _testVar2;
-
+        StateMachine.UIController._stateMarkerTextUI.text = "[Setup State]";
         Debug.Log("Setup: ...Entering");
         Debug.Log("------------------");
         // CANT change state while still in Enter()/Exit() transition!
@@ -36,7 +30,6 @@ public class SetupGameState : GameState
 
     public override void Exit()
     {
-        base.Exit();
         _activated = false;
         Debug.Log("Setup: Exiting...");
     }

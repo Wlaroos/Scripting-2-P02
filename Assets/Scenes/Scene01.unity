@@ -374,6 +374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 912c87e484e592c4ab9a4eda4d1233e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _stateMarkerTextUI: {fileID: 2016181427}
   _enemyThinkingTextUI: {fileID: 244047800}
 --- !u!1 &393097132
 GameObject:
@@ -1977,8 +1978,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3416603a0f53ad4fb377cf94ed09df7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _testVar: 2
-  _testVar2: 3
 --- !u!114 &2042458211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1992,15 +1991,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _input: {fileID: 1614727412}
+  _uiController: {fileID: 386466283}
   _diceController: {fileID: 678203686}
   _dice: {fileID: 8812588664176603488, guid: 12c90809b4b27cc4594585c873d9a454, type: 3}
-  _playerRoll: 0
-  _enemyRoll: 0
-  _str: 0
-  _dex: 0
-  _con: 0
-  _int: 0
-  _cha: 0
 --- !u!114 &2042458212
 MonoBehaviour:
   m_ObjectHideFlags: 0

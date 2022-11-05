@@ -4,7 +4,6 @@ using UnityEngine;
 
 public abstract class StateMachine : MonoBehaviour
 {
-
     public State CurrentState => _currentState;
     protected bool InTransition { get; private set; }
 

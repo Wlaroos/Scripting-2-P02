@@ -30,18 +30,6 @@ public class GameSM : StateMachine
         ChangeState<SetupGameState>();
     }
 
-    private void OnEnable()
-    {
-        GameState.StateEnter += OnStateEnter;
-        GameState.StateExit += OnStateExit;
-    }
-
-    private void OnDisable()
-    {
-        GameState.StateEnter -= OnStateEnter;
-        GameState.StateExit -= OnStateExit;
-    }
-
     public void SetStat(int index, int value)
     {
         _playerStats[index] = value;
@@ -57,13 +45,11 @@ public class GameSM : StateMachine
         _enemyRoll = value;
     }
 
-    private void OnStateEnter()
+    public void OnStateExit()
     {
-        _uiController._stateMarkerTextUI.text = CurrentState.ToString().Replace("StateController","");
-    }
-
-    private void OnStateExit()
-    {
-        //
+        foreach (Transform child in _diceController.transform)
+        {
+                GameObject.Destroy(child.gameObject);
+        }
     }
 }

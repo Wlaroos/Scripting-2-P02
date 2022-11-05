@@ -9,9 +9,7 @@ public class InitialStatRollState : GameState
 
     public override void Enter()
     {
-        base.Enter();
-        // Only here to stop warnings for "Not using the variable"
-
+        StateMachine.UIController._stateMarkerTextUI.text = "[Initial Stat Roll State]";
         Debug.Log("ROLL FOR YOUR STATS!");
         Debug.Log("------------------");
         // CANT change state while still in Enter()/Exit() transition!
@@ -32,7 +30,6 @@ public class InitialStatRollState : GameState
 
     public override void Exit()
     {
-        base.Exit();
         StateMachine.Input.PressedConfirm -= OnPressedConfirm;
         _activated = false;
     }
