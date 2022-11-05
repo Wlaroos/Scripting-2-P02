@@ -596,7 +596,7 @@ GameObject:
   - component: {fileID: 503967412}
   - component: {fileID: 503967416}
   m_Layer: 5
-  m_Name: EventCanvas
+  m_Name: EventChoiceCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1358,15 +1358,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '</color=orange>STR:</color>
+  m_text: '<color=orange>STR</color>:
 
-    DEX:
+    <color=yellow>DEX</color>:
 
-    CON:
+    <color=red>CON</color>:
 
-    INT:
+    <color=#00ffffff>INT</color>:
 
-    CHA:'
+    <color=purple>CHA</color>:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2569,6 +2569,9 @@ GameObject:
   - component: {fileID: 2042458212}
   - component: {fileID: 2042458213}
   - component: {fileID: 2042458214}
+  - component: {fileID: 2042458217}
+  - component: {fileID: 2042458216}
+  - component: {fileID: 2042458215}
   m_Layer: 0
   m_Name: StateController
   m_TagString: Untagged
@@ -2619,7 +2622,7 @@ MonoBehaviour:
   _uiController: {fileID: 386466283}
   _diceController: {fileID: 678203686}
   _mapController: {fileID: 178845190}
-  _eventController: {fileID: 503967416}
+  _eventChoiceController: {fileID: 0}
   _minigameController: {fileID: 1950058902}
   _dice: {fileID: 8812588664176603488, guid: 12c90809b4b27cc4594585c873d9a454, type: 3}
 --- !u!114 &2042458212
@@ -2658,5 +2661,41 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a9e561412df740459820ce12f8b60ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2042458215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042458208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a379057517a1ca4a8d074466e0913d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2042458216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042458208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d3114230afd53742917eb9db7f4a499, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2042458217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042458208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2875e7f11e17bd643a912f7a0e871693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
