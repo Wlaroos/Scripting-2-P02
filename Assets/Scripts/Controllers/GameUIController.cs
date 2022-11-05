@@ -8,7 +8,9 @@ using System;
 public class GameUIController : MonoBehaviour
 {
 
-    public TextMeshProUGUI _stateMarkerTextUI = null;
+    [SerializeField] public TextMeshProUGUI _stateMarkerTextUI = null;
+    [SerializeField] public TextMeshProUGUI _playerStatTextUI = null;
+    public string[] _statString = new string[] {"[]", "[]", "[]", "[]", "[]" };
     [SerializeField] TextMeshProUGUI _enemyThinkingTextUI = null;
 
     private void OnEnable()
@@ -37,6 +39,15 @@ public class GameUIController : MonoBehaviour
     private void OnEnemyTurnEnded()
     {
         _enemyThinkingTextUI.gameObject.SetActive(false);
+    }
+
+    public void StatChange()
+    {
+        _playerStatTextUI.text = "";
+        for (int i = 0; i < _statString.Length; i++)
+        {
+            _playerStatTextUI.text += _statString[i] + "\n";
+        }
     }
 
 }

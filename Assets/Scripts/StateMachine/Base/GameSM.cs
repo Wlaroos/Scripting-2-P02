@@ -43,6 +43,8 @@ public class GameSM : StateMachine
     public void SetStat(int index, int value)
     {
         _playerStats[index] = value;
+        _uiController._statString[index] = "[" + value.ToString() + "]";
+        _uiController.StatChange();
     }
 
     public void SetPlayerRoll(int value)

@@ -11,9 +11,6 @@ public class DiceController : MonoBehaviour
 
     private Color[] _statColors = new Color[] {new Color(1,0,0), new Color(1,.65f,0), new Color(1,1,0), new Color(0,0,1), new Color(.6f,0.1f,1), };
 
-    // Amount of dice to roll
-    [SerializeField] int _diceAmount = 1;
-
     // Increments as dice stop moving and return their values
     int _diceResolved = 0;
 
