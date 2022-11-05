@@ -138,27 +138,4 @@ public class Dice : MonoBehaviour
 
         return (iValue, _mr.material.color);
     }
-
-    private void OnEnable()
-    {
-        EnemyTurnGameState.EnemyTurnBegan += OnEnemyTurnBegan;
-        EnemyTurnGameState.EnemyTurnEnded += OnEnemyTurnEnded;
-    }
-
-    private void OnDisable()
-    {
-        EnemyTurnGameState.EnemyTurnBegan -= OnEnemyTurnBegan;
-        EnemyTurnGameState.EnemyTurnEnded -= OnEnemyTurnEnded;
-    }
-
-    private void OnEnemyTurnBegan()
-    {
-        //Destroy(gameObject);
-    }
-
-    private void OnEnemyTurnEnded()
-    {
-        Destroy(gameObject);
-    }
-
 }

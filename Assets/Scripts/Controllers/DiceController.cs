@@ -36,26 +36,30 @@ public class DiceController : MonoBehaviour
             {
                 Dice diceRef = Instantiate(_diceRef, _throwPosition, Quaternion.identity);
 
+                // Make child of DiceController
+                diceRef.transform.SetParent(transform);
+
                 // Subscribe to the event of the dice that was just spawned
                 diceRef.DiceValueReturned += OnDiceReturn;
 
+                // Add dice to list for later references
                 _diceRolledList.Add(diceRef);
 
+                // Change color of dice depending on which state the game is in
                 switch (_SMRef.CurrentState)
                 {
                     case InitialStatRollState:
                         diceRef.GetComponent<MeshRenderer>().material.SetColor("_Color", _statColors[i]);
                         break;
                     case EnemyTurnGameState:
-                        diceRef.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.red);
+                        diceRef.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.magenta);
                         break;
                     case PlayerTurnGameState:
                         diceRef.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.cyan);
                         break;
                 }
 
-                //diceRef.GetComponent<MeshRenderer>().material.SetColor("_Color", UnityEngine.Random.ColorHSV());
-
+                // Actually roll the dice now that setup is complete
                 diceRef.RollDice();
             }
         }
@@ -66,7 +70,7 @@ public class DiceController : MonoBehaviour
         // Does nothing if dice is stuck. Dice is rerolled internally.
         if (diceValue != -1)
         {
-            // Adds score
+            // Sets initial stats if game is in InitialRollState
             if(_SMRef.CurrentState == _SMRef.GetComponent<InitialStatRollState>())
             {
                 switch (diceColor)
@@ -88,6 +92,8 @@ public class DiceController : MonoBehaviour
                         break;
                 }
             }
+
+            // Adds score
             _diceTotalScore += diceValue;
 
             // Unsubscribe from the event of the dice in the list that have returned their value
@@ -99,9 +105,11 @@ public class DiceController : MonoBehaviour
                 }
             }
 
+            // Proof that dice has finished moving
             _diceResolved++;
             Debug.Log("Roll " + _diceResolved + ": " + diceValue);
 
+            // Once all dice that were rolled are resolved, do different things based on the state of the game
             if (_diceResolved == _diceRolledList.Count)
             {
                 Debug.Log("Total Roll: " + _diceTotalScore);
@@ -114,7 +122,7 @@ public class DiceController : MonoBehaviour
                         break;
                     case EnemyTurnGameState:
                         _SMRef.SetEnemyRoll(_diceTotalScore);
-                        _SMRef.ChangeState<EnemyTurnGameState>();
+                        _SMRef.ChangeState<PlayerTurnGameState>();
                         break;
                     case PlayerTurnGameState:
                         _SMRef.SetPlayerRoll(_diceTotalScore);

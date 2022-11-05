@@ -12,8 +12,11 @@ public class EnemyTurnGameState : GameState
 
     [SerializeField] float _pauseDuration = 1.5f;
 
+    private int _diceAmount = 2;
+
     public override void Enter()
     {
+        base.Enter();
         Debug.Log("Enemy Turn: ...Enter");
         EnemyTurnBegan?.Invoke();
 
@@ -27,6 +30,7 @@ public class EnemyTurnGameState : GameState
 
     public override void Exit()
     {
+        base.Exit();
         Debug.Log("Enemy Turn: Exit...");
     }
 
@@ -36,9 +40,14 @@ public class EnemyTurnGameState : GameState
         yield return new WaitForSeconds(pauseDuration);
 
         Debug.Log("Enemy performs action");
+        StateMachine.DiceController.StartRoll(_diceAmount);
         EnemyTurnEnded?.Invoke();
+    }
 
-        // turn over, go back to player
+    public void EnemyDiceResolved()
+    {
+        // Turn Over
+        EnemyTurnEnded?.Invoke();
         StateMachine.ChangeState<PlayerTurnGameState>();
     }
 

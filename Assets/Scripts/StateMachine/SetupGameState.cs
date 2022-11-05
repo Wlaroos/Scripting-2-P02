@@ -12,6 +12,7 @@ public class SetupGameState : GameState
 
     public override void Enter()
     {
+        base.Enter();
         // Only here to stop warnings for "Not using the variable"
         _testVar = _testVar2;
 
@@ -35,6 +36,7 @@ public class SetupGameState : GameState
 
     public override void Exit()
     {
+        base.Exit();
         _activated = false;
         Debug.Log("Setup: Exiting...");
     }

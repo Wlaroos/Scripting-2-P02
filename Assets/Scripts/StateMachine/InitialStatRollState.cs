@@ -9,6 +9,7 @@ public class InitialStatRollState : GameState
 
     public override void Enter()
     {
+        base.Enter();
         // Only here to stop warnings for "Not using the variable"
 
         Debug.Log("ROLL FOR YOUR STATS!");
@@ -31,6 +32,7 @@ public class InitialStatRollState : GameState
 
     public override void Exit()
     {
+        base.Exit();
         StateMachine.Input.PressedConfirm -= OnPressedConfirm;
         _activated = false;
     }

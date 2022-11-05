@@ -8,6 +8,7 @@ using System;
 public class GameUIController : MonoBehaviour
 {
 
+    public TextMeshProUGUI _stateMarkerTextUI = null;
     [SerializeField] TextMeshProUGUI _enemyThinkingTextUI = null;
 
     private void OnEnable()
