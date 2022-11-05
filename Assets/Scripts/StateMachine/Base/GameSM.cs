@@ -14,10 +14,10 @@ public class GameSM : StateMachine
     public DiceController DiceController => _diceController;
 
     [SerializeField] MapController _mapController;
-    [SerializeField] EventController _eventController;
+    [SerializeField] EventChoiceController _eventChoiceController;
     [SerializeField] MinigameController _minigameController;
     public MapController MapController => _mapController;
-    public EventController EventController => _eventController;
+    public EventChoiceController EventChoiceController => _eventChoiceController;
     public MinigameController MinigameController => _minigameController;
 
     [SerializeField] Dice _dice;
@@ -36,7 +36,7 @@ public class GameSM : StateMachine
     {
         ChangeState<SetupGameState>();
         _mapController.gameObject.SetActive(false);
-        _eventController.gameObject.SetActive(false);
+        _eventChoiceController.gameObject.SetActive(false);
         _minigameController.gameObject.SetActive(false);
     }
 
