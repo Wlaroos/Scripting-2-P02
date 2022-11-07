@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &50665563
 RectTransform:
   m_ObjectHideFlags: 0
@@ -633,7 +633,7 @@ GameObject:
   - component: {fileID: 508206392}
   - component: {fileID: 508206393}
   m_Layer: 5
-  m_Name: Grid-Line-Parent
+  m_Name: Multi-Grid-Line-Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -675,7 +675,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lines:
   - {fileID: 63491546}
-  - {fileID: 0}
+  - {fileID: 1406908295}
 --- !u!1 &669682359
 GameObject:
   m_ObjectHideFlags: 0
