@@ -9,10 +9,9 @@ public class UILineRenderer : Graphic
 
     [SerializeField] Vector2Int _gridSize;
 
-    [SerializeField] List<Vector2> _points;
+    [SerializeField] public List<Vector2> _points;
 
-    [SerializeField] List<GameObject> _Images;
-    [SerializeField] float _ImageHalfWidth = 25;
+    [SerializeField] public float _imageWidth = 50;
 
     float _width;
     float _height;
@@ -61,11 +60,11 @@ public class UILineRenderer : Graphic
 
             DrawVerticesForPoint(point, point2, vh, angle);
 
-            _Images[i].transform.localPosition = MoveImages(point);
+/*            _Images[i].transform.localPosition = MoveImages(point);
             if (i + 1 == _points.Count - 1)
             {
                 _Images[i + 1].transform.localPosition = MoveImages(point2);
-            }
+            }*/
         }
 
         for (int i = 0; i < _points.Count -1; i++)
@@ -104,11 +103,11 @@ public class UILineRenderer : Graphic
         vh.AddVert(vertex);
     }
 
-    Vector3 MoveImages(Vector2 point)
+    public Vector3 MoveImages(Vector2 point)
     {
         UIVertex vertex = UIVertex.simpleVert;
 
-        vertex.position = new Vector3(_unitWidth * point.x -_ImageHalfWidth, _unitHeight * point.y - _ImageHalfWidth);
+        vertex.position = new Vector3(_unitWidth * point.x -_imageWidth/2, _unitHeight * point.y - _imageWidth/2);
 
         return vertex.position;
     }
