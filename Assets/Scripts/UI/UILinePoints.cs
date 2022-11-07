@@ -8,6 +8,8 @@ public class UILinePoints : MonoBehaviour
     UILineRenderer _parent;
     List<GameObject> _images = new List<GameObject>();
 
+    [SerializeField]bool _onlyMiddle;
+
     int _count;
     float _imageWidth = 50f;
 
@@ -31,12 +33,18 @@ public class UILinePoints : MonoBehaviour
             rect.anchorMin = new Vector2(0, 0);
             rect.anchorMax = new Vector2(0, 0);
             rect.pivot = new Vector2(0, 0);
+
         }
     }
 
-    private void Update()
+    private void Start()
     {
-        for (int i = 0; i < _images.Count -1; i++)
+        Invoke("Delay", .01f);
+    }
+
+    private void Delay()
+    {
+        for (int i = 0; i < _images.Count - 1; i++)
         {
             Vector2 point = _parent._points[i];
             Vector2 point2 = _parent._points[i + 1];
@@ -47,6 +55,21 @@ public class UILinePoints : MonoBehaviour
                 _images[i + 1].transform.localPosition = _parent.MoveImages(point2);
             }
         }
+    }
+
+    private void FixedUpdate()
+    {
+/*        for (int i = 0; i < _images.Count -1; i++)
+        {
+            Vector2 point = _parent._points[i];
+            Vector2 point2 = _parent._points[i + 1];
+
+            _images[i].transform.localPosition = _parent.MoveImages(point);
+            if (i + 1 == _parent._points.Count - 1)
+            {
+                _images[i + 1].transform.localPosition = _parent.MoveImages(point2);
+            }
+        }*/
     }
 
 }
