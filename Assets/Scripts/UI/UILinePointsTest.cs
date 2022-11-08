@@ -43,7 +43,7 @@ public class UILinePointsTest : MonoBehaviour
         // Create and set default values for every point needed -- Also, add each gameobject to the _images List
         for (int j = 0; j < _totalPointCount; j++)
         {
-            _images.Add(new GameObject("Point", typeof(RectTransform), typeof(CanvasRenderer), typeof(Image)));
+            _images.Add(new GameObject("Point" + j + 1, typeof(RectTransform), typeof(CanvasRenderer), typeof(Image), typeof(Button)));
 
             Transform trans = _images[j].transform;
             trans.SetParent(transform);
@@ -56,7 +56,21 @@ public class UILinePointsTest : MonoBehaviour
             rect.anchorMax = new Vector2(0, 0);
             rect.pivot = new Vector2(0, 0);
 
+            // Adds button, changes pressed color, and adds a listener
+            Button button = _images[j].transform.GetComponent<Button>();
+            ColorBlock cb = button.colors;
+            cb.pressedColor = Color.cyan;
+            button.colors = cb;
+
+            // Lambda expression to inline a method with parameters
+            button.onClick.AddListener(() => ButtonClick(button));
+
         }
+    }
+
+    void ButtonClick(Button button)
+    {
+        Debug.Log(button.name);
     }
 
     // Gives the LineRenderer script time to setup
@@ -103,6 +117,15 @@ public class UILinePointsTest : MonoBehaviour
                 Destroy(collection[j].gameObject);
                 collection.RemoveAt(j);
                 j--;
+            }
+        }
+
+        // Renames so numbers don't skip around
+        for (int i = 0; i < collection.Count; i++)
+        {
+            for (int j = i; j < collection.Count; j++)
+            {
+                collection[j].name = "Point" + (j+1).ToString();
             }
         }
     }
