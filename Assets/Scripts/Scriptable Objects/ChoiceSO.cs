@@ -12,14 +12,14 @@ public class ChoiceSO : ScriptableObject
 
     [SerializeField] private string _choiceName;
     [TextArea(3, 10)]
-    [SerializeField] private string _choiceText;
+    [SerializeField] private string _buttonText;
     [SerializeField] private Sprite _choiceImage;
     [SerializeField] private int _statIndex;
 
     public EventSO MyEvent { get => _myEvent; set => _myEvent = value; }
 
     public string ChoiceName { get => _choiceName; }
-    public string ChoiceText { get => _choiceText; }
+    public string ButtonText { get => _buttonText; }
     public Sprite ChoiceImage { get => _choiceImage; }
     public int StatIndex { get => _statIndex; }
 

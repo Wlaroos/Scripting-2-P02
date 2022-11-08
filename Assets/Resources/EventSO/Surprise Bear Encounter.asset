@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: TestChoice02
   m_EditorClassIdentifier: 
   _myEvent: {fileID: 11400000}
-  _choiceName: TestChoice02
-  _choiceText: ExampleText02
+  _choiceName: Get the hell out of there!
+  _buttonText: Run
   _choiceImage: {fileID: 0}
   _statIndex: 1
 --- !u!114 &11400000
@@ -27,9 +27,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d893bebf9f5a39a4fb34e6a773c0df43, type: 3}
-  m_Name: TestEvent
+  m_Name: Surprise Bear Encounter
   m_EditorClassIdentifier: 
-  _eventName: 
+  _eventName: Surprise Bear Encounter
   _choices:
   - {fileID: 7792873216569513333}
   - {fileID: -5700892277757841468}
@@ -47,8 +47,8 @@ MonoBehaviour:
   m_Name: TestChoice01
   m_EditorClassIdentifier: 
   _myEvent: {fileID: 11400000}
-  _choiceName: TestChoice01
-  _choiceText: ExampleText01
+  _choiceName: Talk about the stock market fiasco
+  _buttonText: Negotiate
   _choiceImage: {fileID: 0}
   _statIndex: 0
 --- !u!114 &7792873216569513333
@@ -64,7 +64,7 @@ MonoBehaviour:
   m_Name: TestChoice03
   m_EditorClassIdentifier: 
   _myEvent: {fileID: 11400000}
-  _choiceName: TestChoice03
-  _choiceText: ExampleText03
+  _choiceName: Fight the bear!
+  _buttonText: Attack
   _choiceImage: {fileID: 0}
   _statIndex: 2

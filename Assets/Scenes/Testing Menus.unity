@@ -624,7 +624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d73f084004907c4a8850e507c9c5c89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _choiceAmount: 3
+  _eventTitleText: {fileID: 1822067301}
   _choiceUIPrefab: {fileID: 6592800959856926865, guid: 99f907fb6d76d3c47bc9a47219f59420, type: 3}
 --- !u!1 &508206391
 GameObject:
