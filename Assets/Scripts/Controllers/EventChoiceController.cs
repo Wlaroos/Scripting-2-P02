@@ -6,6 +6,8 @@ using TMPro;
 
 public class EventChoiceController : MonoBehaviour
 {
+    [SerializeField] GameSM _SMRef;
+
     [SerializeField] TextMeshProUGUI _eventTitleText;
     [SerializeField] GameObject _choiceUIPrefab;
 
@@ -68,6 +70,8 @@ public class EventChoiceController : MonoBehaviour
     void ButtonClick(Button button, ChoiceSO choice)
     {
         int statIndex = choice.StatIndex;
+        _SMRef.OnStateExit();
+        _SMRef.ChangeState<MinigameState>();
     }
 
 }

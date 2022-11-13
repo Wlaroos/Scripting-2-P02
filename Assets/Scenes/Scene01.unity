@@ -232,6 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d73f084004907c4a8850e507c9c5c89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _SMRef: {fileID: 2042458211}
   _eventTitleText: {fileID: 162535562}
   _choiceUIPrefab: {fileID: 6592800959856926865, guid: 99f907fb6d76d3c47bc9a47219f59420, type: 3}
 --- !u!114 &82936324
@@ -4054,6 +4055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 650cf31e156bf904b9292033fce3569b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _SMRef: {fileID: 2042458211}
   _sliderRef: {fileID: 1637086854}
   sliderSpeed: 150
 --- !u!114 &1637086854

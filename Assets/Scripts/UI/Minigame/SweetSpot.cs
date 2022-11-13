@@ -6,6 +6,7 @@ using TMPro;
 
 public class SweetSpot : MonoBehaviour
 {
+    [SerializeField] GameSM _SMRef;
 
     [SerializeField] Slider _sliderRef;
     [SerializeField] float sliderSpeed = 100f;
@@ -83,5 +84,8 @@ public class SweetSpot : MonoBehaviour
         {
             Debug.Log("Booo... No Dice For Losers!");
         }
+
+        _SMRef.OnStateExit();
+        _SMRef.ChangeState<PlayerTurnGameState>();
     }
 }
