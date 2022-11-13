@@ -69,10 +69,10 @@ public class EventChoiceController : MonoBehaviour
 
     void ButtonClick(Button button, ChoiceSO choice)
     {
-        _SMRef.SetEnemyDiceAmount(choice.EnemyDiceAmount);
-        _SMRef.SetStatIndex(choice.StatIndex);
+        _SMRef.SetEventChoice(choice);
         _SMRef.OnStateExit();
         _SMRef.ChangeState<MinigameState>();
+        button.onClick.RemoveAllListeners();
     }
 
 }

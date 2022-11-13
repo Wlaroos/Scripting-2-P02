@@ -15,6 +15,8 @@ MonoBehaviour:
   _myEvent: {fileID: 11400000}
   _choiceName: Get the hell out of there!
   _buttonText: Run
+  _winText: You successfully escaped the bear! For now...
+  _failText: The bear caught up to you and mauled your face!
   _choiceImage: {fileID: 0}
   _statIndex: 1
   _enemyDiceAmount: 3
@@ -50,6 +52,8 @@ MonoBehaviour:
   _myEvent: {fileID: 11400000}
   _choiceName: Talk about the stock market fiasco
   _buttonText: Negotiate
+  _winText: You successfully got the bear to purchase a bond!
+  _failText: The bear did not want to liquidate his stocks...
   _choiceImage: {fileID: 0}
   _statIndex: 4
   _enemyDiceAmount: 2
@@ -68,6 +72,8 @@ MonoBehaviour:
   _myEvent: {fileID: 11400000}
   _choiceName: Fight the bear!
   _buttonText: Attack
+  _winText: You subdued the bear with a beautifully executed sleeper hold!
+  _failText: Your insides are now outsides...
   _choiceImage: {fileID: 0}
   _statIndex: 0
   _enemyDiceAmount: 4

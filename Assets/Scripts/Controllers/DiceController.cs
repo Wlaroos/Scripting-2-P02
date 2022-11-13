@@ -120,7 +120,7 @@ public class DiceController : MonoBehaviour
                     case EnemyTurnGameState:
                         _SMRef.OnStateExit();
                         _SMRef.SetEnemyRoll(_diceTotalScore);
-                        _SMRef.ChangeState<PlayerTurnGameState>();
+                        _SMRef.ChangeState<EventResultsState>();
                         break;
                     case PlayerTurnGameState:
                         _SMRef.OnStateExit();

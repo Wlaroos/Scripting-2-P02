@@ -11,8 +11,11 @@ public class ChoiceSO : ScriptableObject
     [SerializeField] private EventSO _myEvent;
 
     [SerializeField] private string _choiceName;
-    [TextArea(3, 10)]
     [SerializeField] private string _buttonText;
+    [TextArea(3, 10)]
+    [SerializeField] private string _winText;
+    [TextArea(3, 10)]
+    [SerializeField] private string _failText;
     [SerializeField] private Sprite _choiceImage;
     [SerializeField] private int _statIndex;
     [SerializeField] private int _enemyDiceAmount;
@@ -21,6 +24,8 @@ public class ChoiceSO : ScriptableObject
 
     public string ChoiceName { get => _choiceName; }
     public string ButtonText { get => _buttonText; }
+    public string WinText { get => _winText; }
+    public string FailText { get => _failText; }
     public Sprite ChoiceImage { get => _choiceImage; }
     public int StatIndex { get => _statIndex; }
     public int EnemyDiceAmount { get => _enemyDiceAmount; }
