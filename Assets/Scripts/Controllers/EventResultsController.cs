@@ -42,7 +42,7 @@ public class EventResultsController : MonoBehaviour
         int mapPointCount = _SMRef.MapController.GetComponent<UILinePointsTest>().Images.Count;
         if (_SMRef.PlayerHealth > 0 && mapPointCount <= 0) _SMRef.ChangeState<WinState>();
         else if (_SMRef.PlayerHealth > 0 && mapPointCount > 0) _SMRef.ChangeState<MapState>();
-        else _SMRef.ChangeState<LossState>();
+        else _SMRef.ChangeState<LoseState>();
 
         _continueButton.onClick.RemoveAllListeners();
     }
