@@ -12,8 +12,6 @@ public class EnemyTurnGameState : GameState
 
     [SerializeField] float _pauseDuration = 1.5f;
 
-    private int _diceAmount = 2;
-
     public override void Enter()
     {
         StateMachine.UIController._stateMarkerTextUI.text = "[Enemy Turn State]";
