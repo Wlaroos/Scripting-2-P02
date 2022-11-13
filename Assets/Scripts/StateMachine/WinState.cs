@@ -6,7 +6,7 @@ public class WinState : GameState
 {
     public override void Enter()
     {
-        StateMachine.UIController._stateMarkerTextUI.text = "[Map State]";
+        StateMachine.UIController._stateMarkerTextUI.text = "[Win State]";
         //StateMachine.MapController.SetActive(true);
         // CANT change state while still in Enter()/Exit() transition!
         // DONT put ChangeState<> here.
