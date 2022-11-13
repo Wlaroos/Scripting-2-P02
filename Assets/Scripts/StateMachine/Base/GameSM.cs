@@ -78,7 +78,7 @@ public class GameSM : StateMachine
 
     public void SetEnemyDiceAmount(int value)
     {
-        _extraDice = value;
+        _enemyDiceAmount = value;
     }
 
     public void OnStateExit()
