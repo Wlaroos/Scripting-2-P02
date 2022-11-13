@@ -138,4 +138,13 @@ public class Dice : MonoBehaviour
 
         return (iValue, _mr.material.color);
     }
+
+    // If dice is out of bounds, reroll
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.name == "FallZone")
+        {
+            RollAgain();
+        }
+    }
 }

@@ -15,10 +15,10 @@ public class GameSM : StateMachine
 
     [SerializeField] GameObject _mapController;
     [SerializeField] EventChoiceController _eventChoiceController;
-    [SerializeField] MinigameController _minigameController;
+    [SerializeField] GameObject _minigameController;
     public GameObject MapController => _mapController;
     public EventChoiceController EventChoiceController => _eventChoiceController;
-    public MinigameController MinigameController => _minigameController;
+    public GameObject MinigameController => _minigameController;
 
     [SerializeField] Dice _dice;
     public Dice Dice => _dice;
