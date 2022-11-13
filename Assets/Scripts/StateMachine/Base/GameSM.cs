@@ -17,10 +17,14 @@ public class GameSM : StateMachine
     [SerializeField] EventChoiceController _eventChoiceController;
     [SerializeField] GameObject _minigameController;
     [SerializeField] EventResultsController _eventResultsController;
+    [SerializeField] GameObject _winScreen;
+    [SerializeField] GameObject _loseScreen;
     public GameObject MapController => _mapController;
     public EventChoiceController EventChoiceController => _eventChoiceController;
     public GameObject MinigameController => _minigameController;
     public EventResultsController EventResultsController => _eventResultsController;
+    public GameObject _WinScreen => _winScreen;
+    public GameObject LoseScreen => _loseScreen;
 
     [SerializeField] Dice _dice;
     public Dice Dice => _dice;
