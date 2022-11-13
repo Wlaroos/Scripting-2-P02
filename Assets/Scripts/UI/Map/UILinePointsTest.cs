@@ -30,7 +30,7 @@ public class UILinePointsTest : MonoBehaviour
         for (int i = 0; i < _lines.Length; i++)
         {
             // Set References
-            _lines[i] = transform.GetChild(i).GetComponent<UILineRenderer>();
+            _lines[i] = transform.GetChild(i + 1).GetComponent<UILineRenderer>();
             // Add to total point count from each line's point count
             _totalPointCount += _lines[i]._points.Count;
             // All width values should be the same, so grab from whichever
