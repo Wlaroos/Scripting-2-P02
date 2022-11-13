@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,8 +9,10 @@ public class UILinePointsTest : MonoBehaviour
 
     // List of Point Objects
     List<GameObject> _images = new List<GameObject>();
-    // List of points in ALL Line Objects
+    // List of point object locations for ALL Line Objects
     List<Vector2> _localPoints = new List<Vector2>();
+
+    List<int> _previousPoints = new List<int>();
 
     int _totalPointCount;
     float _imageWidth = 50f;
@@ -64,6 +64,7 @@ public class UILinePointsTest : MonoBehaviour
 
             // Lambda expression to inline a method with parameters
             button.onClick.AddListener(() => ButtonClick(button));
+            button.interactable = false;
 
         }
     }
@@ -71,6 +72,7 @@ public class UILinePointsTest : MonoBehaviour
     void ButtonClick(Button button)
     {
         Debug.Log(button.name);
+        EnableDisableButtons();
     }
 
     // Gives the LineRenderer script time to setup
@@ -100,12 +102,13 @@ public class UILinePointsTest : MonoBehaviour
         }
 
         // Remove duplicate images
-        RemoveDuplicatesFrom(_images);
+        RemoveDuplicatesFrom(_images,_localPoints);
     }
 
-    // Checking list for duplicates
-    private void RemoveDuplicatesFrom(List<GameObject> collection)
+    // Checking lists for duplicates
+    private void RemoveDuplicatesFrom(List<GameObject> collection, List<Vector2> points)
     {
+        // Removes point object duplicates
         for (int i = 0; i < collection.Count; i++)
         {
             for (int j = i + 1; j < collection.Count; j++)
@@ -120,14 +123,30 @@ public class UILinePointsTest : MonoBehaviour
             }
         }
 
-        // Renames so numbers don't skip around
+        // Removes vector2 position duplicates
+        for (int i = 0; i < points.Count; i++)
+        {
+            for (int j = i + 1; j < points.Count; j++)
+            {
+                // If duplicate is found, remove from list
+                if (!(points[i].x == points[j].x && points[i].y == points[j].y))
+                    continue;
+
+                points.RemoveAt(j);
+                j--;
+            }
+        }
+
+        // Renames so numbers are in order
         for (int i = 0; i < collection.Count; i++)
         {
             for (int j = i; j < collection.Count; j++)
             {
-                collection[j].name = "Point" + (j+1).ToString();
+                collection[j].name = "Point" + (j).ToString();
             }
         }
+
+        EnableDisableButtons();
     }
 
     // Test to see if transforms match
@@ -136,19 +155,31 @@ public class UILinePointsTest : MonoBehaviour
         return object1.transform.position.x == object2.transform.position.x && object1.transform.position.y == object2.transform.position.y;
     }
 
-    private void FixedUpdate()
+    void EnableDisableButtons()
     {
-        /*        for (int i = 0; i < _images.Count -1; i++)
-                {
-                    Vector2 point = _parent._points[i];
-                    Vector2 point2 = _parent._points[i + 1];
+        foreach (int index in _previousPoints)
+        {
+            _images[index].GetComponent<Button>().interactable = false;
+            _images.RemoveAt(index);
+            _localPoints.RemoveAt(index);
+        }
 
-                    _images[i].transform.localPosition = _parent.MoveImages(point);
-                    if (i + 1 == _parent._points.Count - 1)
-                    {
-                        _images[i + 1].transform.localPosition = _parent.MoveImages(point2);
-                    }
-                }*/
+        _previousPoints.Clear();
+
+        if (_localPoints.Count > 0)
+        {
+            for (int i = 1; i < _localPoints.Count; i++)
+            {
+                if (_localPoints[0].x == _localPoints[i].x)
+                {
+                    _images[i].GetComponent<Button>().interactable = true;
+                    _previousPoints.Add(i);
+                }
+            }
+
+            _images[0].GetComponent<Button>().interactable = true;
+            _previousPoints.Add(0);
+        }
     }
 
 }

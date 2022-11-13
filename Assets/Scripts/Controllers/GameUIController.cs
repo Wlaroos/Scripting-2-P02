@@ -10,6 +10,7 @@ public class GameUIController : MonoBehaviour
 
     [SerializeField] public TextMeshProUGUI _stateMarkerTextUI = null;
     [SerializeField] public TextMeshProUGUI _playerStatTextUI = null;
+    [SerializeField] public TextMeshProUGUI _playerStatNamesUI = null;
     public string[] _statString = new string[] {"[]", "[]", "[]", "[]", "[]" };
     [SerializeField] TextMeshProUGUI _enemyThinkingTextUI = null;
 
