@@ -69,7 +69,7 @@ public class EventChoiceController : MonoBehaviour
 
     void ButtonClick(Button button, ChoiceSO choice)
     {
-        int statIndex = choice.StatIndex;
+        _SMRef.SetStatIndex(choice.StatIndex);
         _SMRef.OnStateExit();
         _SMRef.ChangeState<MinigameState>();
     }

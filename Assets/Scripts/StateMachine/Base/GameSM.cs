@@ -32,6 +32,12 @@ public class GameSM : StateMachine
     private int[] _playerStats = new int[] {0,0,0,0,0};
     public int[] PlayerStats => _playerStats;
 
+    private int _statIndex;
+    public int StatIndex => _statIndex;
+
+    private bool _extraDice;
+    public bool ExtraDice => _extraDice;
+
     void Start()
     {
         ChangeState<SetupGameState>();
@@ -55,6 +61,16 @@ public class GameSM : StateMachine
     public void SetEnemyRoll(int value)
     {
         _enemyRoll = value;
+    }
+
+    public void SetStatIndex(int value)
+    {
+        _statIndex = value;
+    }
+
+    public void SetExtraDice(bool value)
+    {
+        _extraDice = value;
     }
 
     public void OnStateExit()
