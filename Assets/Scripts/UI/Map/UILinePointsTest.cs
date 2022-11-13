@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 public class UILinePointsTest : MonoBehaviour
 {
+
+    [SerializeField] GameSM _SMRef;
+
     // Array of Line Objects
     [SerializeField] UILineRenderer[] _lines;
 
@@ -71,7 +74,11 @@ public class UILinePointsTest : MonoBehaviour
 
     void ButtonClick(Button button)
     {
-        Debug.Log(button.name);
+        //Debug.Log(button.name);
+
+        // Later on, set which event pool to choose from here
+        _SMRef.OnStateExit();
+        _SMRef.ChangeState<EventChoiceState>();
         EnableDisableButtons();
     }
 

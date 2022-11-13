@@ -17,7 +17,7 @@ public class EventChoiceController : MonoBehaviour
     private void Awake()
     {
         _allEvents = Resources.LoadAll<EventSO>("EventSO/");
-        _hlgRef = transform.GetChild(0).GetChild(1).gameObject;
+        _hlgRef = transform.GetChild(1).GetChild(1).gameObject;
     }
 
     private void OnEnable()
