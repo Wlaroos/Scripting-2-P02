@@ -87,7 +87,7 @@ public class UILinePointsTest : MonoBehaviour
     // Gives the LineRenderer script time to setup
     private void Start()
     {
-        Invoke("Delay", .01f);
+        Invoke("Delay", .025f);
     }
 
     private void Delay()

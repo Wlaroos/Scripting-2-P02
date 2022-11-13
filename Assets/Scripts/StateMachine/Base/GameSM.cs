@@ -19,12 +19,14 @@ public class GameSM : StateMachine
     [SerializeField] EventResultsController _eventResultsController;
     [SerializeField] GameObject _winScreen;
     [SerializeField] GameObject _loseScreen;
+    [SerializeField] RollConfirm _rollConfirm;
     public GameObject MapController => _mapController;
     public EventChoiceController EventChoiceController => _eventChoiceController;
     public GameObject MinigameController => _minigameController;
     public EventResultsController EventResultsController => _eventResultsController;
     public GameObject _WinScreen => _winScreen;
     public GameObject LoseScreen => _loseScreen;
+    public RollConfirm RollConfirm => _rollConfirm;
 
     [SerializeField] Dice _dice;
     public Dice Dice => _dice;
@@ -59,6 +61,9 @@ public class GameSM : StateMachine
         _mapController.gameObject.SetActive(false);
         _eventChoiceController.gameObject.SetActive(false);
         _minigameController.gameObject.SetActive(false);
+        _winScreen.gameObject.SetActive(false);
+        _loseScreen.gameObject.SetActive(false);
+        _rollConfirm.gameObject.SetActive(false);
     }
 
     public void SetStat(int index, int value)
