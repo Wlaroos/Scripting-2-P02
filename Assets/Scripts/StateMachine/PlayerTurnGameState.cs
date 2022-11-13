@@ -47,7 +47,7 @@ public class PlayerTurnGameState : GameState
 
     void OnPressedConfirm()
     {
-        StateMachine.DiceController.StartRoll(_diceAmount);
+        StateMachine.DiceController.StartRoll(StateMachine.PlayerStats[StateMachine.StatIndex] + StateMachine.ExtraDice);
     }
 
 }

@@ -79,12 +79,12 @@ public class SweetSpot : MonoBehaviour
         if (amtSlider >= 48 && amtSlider <= 52)
         {
             Debug.Log("Nice! Extra Dice!");
-            _SMRef.SetExtraDice(true);
+            _SMRef.SetExtraDice(1);
         }
         else
         {
             Debug.Log("Booo... No Dice For Losers!");
-            _SMRef.SetExtraDice(false);
+            _SMRef.SetExtraDice(0);
         }
 
         _SMRef.OnStateExit();

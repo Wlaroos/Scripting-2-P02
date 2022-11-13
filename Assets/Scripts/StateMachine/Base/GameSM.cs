@@ -35,8 +35,11 @@ public class GameSM : StateMachine
     private int _statIndex;
     public int StatIndex => _statIndex;
 
-    private bool _extraDice;
-    public bool ExtraDice => _extraDice;
+    private int _extraDice;
+    public int ExtraDice => _extraDice;
+
+    private int _enemyDiceAmount;
+    public int EnemyDiceAmount => _enemyDiceAmount;
 
     void Start()
     {
@@ -68,7 +71,12 @@ public class GameSM : StateMachine
         _statIndex = value;
     }
 
-    public void SetExtraDice(bool value)
+    public void SetExtraDice(int value)
+    {
+        _extraDice = value;
+    }
+
+    public void SetEnemyDiceAmount(int value)
     {
         _extraDice = value;
     }

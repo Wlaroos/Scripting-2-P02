@@ -39,7 +39,7 @@ public class EnemyTurnGameState : GameState
         yield return new WaitForSeconds(pauseDuration);
 
         Debug.Log("Enemy performs action");
-        StateMachine.DiceController.StartRoll(_diceAmount);
+        StateMachine.DiceController.StartRoll(StateMachine.EnemyDiceAmount);
         EnemyTurnEnded?.Invoke();
     }
 

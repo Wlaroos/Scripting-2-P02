@@ -9,7 +9,7 @@ public class DiceController : MonoBehaviour
     [SerializeField] GameSM _SMRef;
     [SerializeField] Vector3 _throwPosition = new Vector3(0, -4, 3.5f);
 
-    private Color[] _statColors = new Color[] {new Color(1,0,0), new Color(1,.65f,0), new Color(1,1,0), new Color(0,1,1), new Color(.6f,0.1f,1), };
+    private Color[] _statColors = new Color[] { new Color(1, .65f, 0), new Color(1, 1, 0), new Color(1, 0, 0), new Color(0, 1, 1), new Color(.6f, 0.1f, 1), };
 
     // Increments as dice stop moving and return their values
     int _diceResolved = 0;
@@ -49,10 +49,10 @@ public class DiceController : MonoBehaviour
                         diceRef.GetComponent<MeshRenderer>().material.SetColor("_Color", _statColors[i]);
                         break;
                     case EnemyTurnGameState:
-                        diceRef.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.magenta);
+                        diceRef.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.white);
                         break;
                     case PlayerTurnGameState:
-                        diceRef.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.cyan);
+                        diceRef.GetComponent<MeshRenderer>().material.SetColor("_Color", _statColors[_SMRef.StatIndex]);
                         break;
                 }
 

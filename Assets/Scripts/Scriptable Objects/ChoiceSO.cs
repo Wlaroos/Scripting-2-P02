@@ -15,6 +15,7 @@ public class ChoiceSO : ScriptableObject
     [SerializeField] private string _buttonText;
     [SerializeField] private Sprite _choiceImage;
     [SerializeField] private int _statIndex;
+    [SerializeField] private int _enemyDiceAmount;
 
     public EventSO MyEvent { get => _myEvent; set => _myEvent = value; }
 
@@ -22,6 +23,7 @@ public class ChoiceSO : ScriptableObject
     public string ButtonText { get => _buttonText; }
     public Sprite ChoiceImage { get => _choiceImage; }
     public int StatIndex { get => _statIndex; }
+    public int EnemyDiceAmount { get => _enemyDiceAmount; }
 
 #if UNITY_EDITOR
     public void Initialize(EventSO myEvent)

@@ -17,6 +17,7 @@ MonoBehaviour:
   _buttonText: Run
   _choiceImage: {fileID: 0}
   _statIndex: 1
+  _enemyDiceAmount: 3
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50,7 +51,8 @@ MonoBehaviour:
   _choiceName: Talk about the stock market fiasco
   _buttonText: Negotiate
   _choiceImage: {fileID: 0}
-  _statIndex: 0
+  _statIndex: 4
+  _enemyDiceAmount: 2
 --- !u!114 &7792873216569513333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,4 +69,5 @@ MonoBehaviour:
   _choiceName: Fight the bear!
   _buttonText: Attack
   _choiceImage: {fileID: 0}
-  _statIndex: 2
+  _statIndex: 0
+  _enemyDiceAmount: 4
