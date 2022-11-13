@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class InputController : MonoBehaviour
 {
@@ -10,13 +11,13 @@ public class InputController : MonoBehaviour
     public event Action PressedLeft = delegate { };
     public event Action PressedRight = delegate { };
 
-
     void Update()
     {
         DetectConfirm();
         DetectCancel();
         DetectLeft();
         DetectRight();
+        DetectRestart();
     }
 
     private void DetectConfirm()
@@ -48,6 +49,14 @@ public class InputController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.D))
         {
             PressedRight?.Invoke();
+        }
+    }
+
+    private void DetectRestart()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 
