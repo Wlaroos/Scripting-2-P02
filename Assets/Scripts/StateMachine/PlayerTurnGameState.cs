@@ -7,10 +7,8 @@ using System;
 
 public class PlayerTurnGameState : GameState
 {
-    [SerializeField] TextMeshProUGUI _playerTurnTextUI = null;
-
-    // Amount of dice to roll
-    int _diceAmount = 2;
+    [SerializeField] TextMeshProUGUI _playerTurnText = null;
+    [SerializeField] TextMeshProUGUI _spacebarText = null;
 
     int _playerTurnCount = 0;
 
@@ -20,10 +18,11 @@ public class PlayerTurnGameState : GameState
         Debug.Log("Player Turn: ...Entering");
         Debug.Log("------------------");
 
-        _playerTurnTextUI.gameObject.SetActive(true);
+        _playerTurnText.gameObject.SetActive(true);
+        _spacebarText.gameObject.SetActive(true);
 
         _playerTurnCount++;
-        _playerTurnTextUI.text = "Player Turn: " + _playerTurnCount.ToString();
+        _playerTurnText.text = "Player Turn: " + _playerTurnCount.ToString();
 
         // hook into events
 
@@ -37,7 +36,7 @@ public class PlayerTurnGameState : GameState
 
     public override void Exit()
     {
-        _playerTurnTextUI.gameObject.SetActive(false);
+        _playerTurnText.gameObject.SetActive(false);
 
         // unhook from events
         StateMachine.Input.PressedConfirm -= OnPressedConfirm;
@@ -48,6 +47,7 @@ public class PlayerTurnGameState : GameState
     void OnPressedConfirm()
     {
         StateMachine.DiceController.StartRoll(StateMachine.PlayerStats[StateMachine.StatIndex] + StateMachine.ExtraDice);
+        _spacebarText.gameObject.SetActive(false);
     }
 
 }

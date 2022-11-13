@@ -25,6 +25,9 @@ public class GameSM : StateMachine
     [SerializeField] Dice _dice;
     public Dice Dice => _dice;
 
+    [SerializeField] private int _playerHealth = 3;
+    public int PlayerHealth => _playerHealth;
+
     private int _playerRoll;
     public int PlayerRoll => _playerRoll;
 
@@ -81,6 +84,11 @@ public class GameSM : StateMachine
         _eventChoice = value;
         _enemyDiceAmount = value.EnemyDiceAmount;
         _statIndex = value.StatIndex;
+    }
+
+    public void ChangePlayerHealth(int value)
+    {
+        _playerHealth += value;
     }
 
     public void OnStateExit()

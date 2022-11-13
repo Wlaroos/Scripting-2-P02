@@ -12,6 +12,8 @@ public class UILinePointsTest : MonoBehaviour
 
     // List of Point Objects
     List<GameObject> _images = new List<GameObject>();
+    public List<GameObject> Images => _images;
+
     // List of point object locations for ALL Line Objects
     List<Vector2> _localPoints = new List<Vector2>();
 

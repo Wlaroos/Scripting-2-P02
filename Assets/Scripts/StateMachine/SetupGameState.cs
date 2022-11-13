@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SetupGameState : GameState
 {
-
     bool _activated = false;
 
     public override void Enter()

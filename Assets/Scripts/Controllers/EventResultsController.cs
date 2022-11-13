@@ -18,7 +18,7 @@ public class EventResultsController : MonoBehaviour
     {
         _continueButton.onClick.AddListener(() => ButtonClick());
 
-       if (_SMRef.PlayerRoll > _SMRef.EnemyRoll)
+       if (_SMRef.PlayerRoll >= _SMRef.EnemyRoll)
         {
             _rollResultText.text = ("Your Roll: [<color=green>" + _SMRef.PlayerRoll + "</color>] --- Event Roll: [<color=red>" + _SMRef.EnemyRoll + "</color>]");
             _eventResultText.text = _SMRef.EventChoice.WinText;
@@ -31,13 +31,19 @@ public class EventResultsController : MonoBehaviour
             _eventResultText.text = _SMRef.EventChoice.FailText;
             _statResultsText.text = ("");
             _eventResultImage.sprite = null;
+            _SMRef.ChangePlayerHealth(-1);
         }
     }
 
     void ButtonClick()
     {
         _SMRef.OnStateExit();
-        _SMRef.ChangeState<MapState>();
+
+        int mapPointCount = _SMRef.MapController.GetComponent<UILinePointsTest>().Images.Count;
+        if (_SMRef.PlayerHealth > 0 && mapPointCount <= 0) _SMRef.ChangeState<WinState>();
+        else if (_SMRef.PlayerHealth > 0 && mapPointCount > 0) _SMRef.ChangeState<MapState>();
+        else _SMRef.ChangeState<LossState>();
+
         _continueButton.onClick.RemoveAllListeners();
     }
 
