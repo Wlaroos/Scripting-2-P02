@@ -12,6 +12,8 @@ public class PlayerTurnGameState : GameState
 
     int _playerTurnCount = 0;
 
+    bool _once = false;
+
     public override void Enter()
     {
         StateMachine.UIController._stateMarkerTextUI.text = "[Player Turn State]";
@@ -38,6 +40,8 @@ public class PlayerTurnGameState : GameState
     {
         _playerTurnText.gameObject.SetActive(false);
 
+        _once = false;
+
         // unhook from events
         StateMachine.Input.PressedConfirm -= OnPressedConfirm;
 
@@ -46,8 +50,12 @@ public class PlayerTurnGameState : GameState
 
     void OnPressedConfirm()
     {
-        StateMachine.DiceController.StartRoll(StateMachine.PlayerStats[StateMachine.StatIndex] + StateMachine.ExtraDice);
-        _spacebarText.gameObject.SetActive(false);
+        if (!_once)
+        {
+            StateMachine.DiceController.StartRoll(StateMachine.PlayerStats[StateMachine.StatIndex] + StateMachine.ExtraDice);
+            _spacebarText.gameObject.SetActive(false);
+            _once = true;
+        }
     }
 
 }

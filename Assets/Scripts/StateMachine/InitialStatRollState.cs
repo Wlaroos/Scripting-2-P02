@@ -8,7 +8,7 @@ public class InitialStatRollState : GameState
 
     [SerializeField] TextMeshProUGUI _spacebarText = null;
 
-    bool _activated = false;
+    bool _once = false;
 
     public override void Enter()
     {
@@ -20,31 +20,29 @@ public class InitialStatRollState : GameState
 
         // CANT change state while still in Enter()/Exit() transition!
         // DONT put ChangeState<> here.
-        _activated = false;
 
         StateMachine.Input.PressedConfirm += OnPressedConfirm;
     }
 
     public override void Tick()
     {
-        // Add delays/input later
-        if(_activated == false)
-        {
-            _activated = true;
-        }
+
     }
 
     public override void Exit()
     {
         StateMachine.Input.PressedConfirm -= OnPressedConfirm;
-        _activated = false;
     }
 
 
     void OnPressedConfirm()
     {
-        StateMachine.DiceController.StartRoll(5);
-        _spacebarText.gameObject.SetActive(false);
+        if (!_once)
+        {
+            StateMachine.DiceController.StartRoll(5);
+            _spacebarText.gameObject.SetActive(false);
+            _once = true;
+        }
     }
 
 }
