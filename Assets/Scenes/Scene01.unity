@@ -6722,7 +6722,7 @@ MonoBehaviour:
   _loseScreen: {fileID: 380896703}
   _rollConfirm: {fileID: 226564887}
   _dice: {fileID: 8812588664176603488, guid: 12c90809b4b27cc4594585c873d9a454, type: 3}
-  _playerHealth: 3
+  _playerHealth: 2
 --- !u!114 &2042458212
 MonoBehaviour:
   m_ObjectHideFlags: 0
