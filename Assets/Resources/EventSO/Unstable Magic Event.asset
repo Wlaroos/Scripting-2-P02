@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: TestChoice02
   m_EditorClassIdentifier: 
   _myEvent: {fileID: 11400000}
-  _choiceName: Get the hell out of there!
-  _buttonText: Run
-  _winText: You successfully escaped the bear! For now...
-  _failText: The bear caught up to you and mauled your face!
+  _choiceName: Tank that Damage
+  _buttonText: Endure
+  _winText: You... you just... you sat on top of the bomb and walked away with only
+    a tattered shirt. Nice going I guess...
+  _failText: You blew up. What did you expect to happen?
   _choiceImage: {fileID: 0}
-  _statIndex: 1
-  _enemyDiceAmount: 3
+  _statIndex: 2
+  _enemyDiceAmount: 5
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32,7 +33,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d893bebf9f5a39a4fb34e6a773c0df43, type: 3}
   m_Name: Unstable Magic Event
   m_EditorClassIdentifier: 
-  _eventName: Surprise Bear Encounter
+  _eventName: Unstable Magic Event
   _choices:
   - {fileID: 7792873216569513333}
   - {fileID: -5700892277757841468}
@@ -50,13 +51,15 @@ MonoBehaviour:
   m_Name: TestChoice01
   m_EditorClassIdentifier: 
   _myEvent: {fileID: 11400000}
-  _choiceName: Talk about the stock market fiasco
-  _buttonText: Negotiate
-  _winText: You successfully got the bear to purchase a bond!
-  _failText: The bear did not want to liquidate his stocks...
+  _choiceName: Defuse the Magic Bomb
+  _buttonText: Chant
+  _winText: Success! You decoded the magic signature and sealed it away before it
+    grew too large to contain.
+  _failText: You should have read up on the runic language. The bomb goes off and
+    you are much less whole than before.
   _choiceImage: {fileID: 0}
-  _statIndex: 4
-  _enemyDiceAmount: 2
+  _statIndex: 3
+  _enemyDiceAmount: 6
 --- !u!114 &7792873216569513333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,10 +73,12 @@ MonoBehaviour:
   m_Name: TestChoice03
   m_EditorClassIdentifier: 
   _myEvent: {fileID: 11400000}
-  _choiceName: Fight the bear!
-  _buttonText: Attack
-  _winText: You subdued the bear with a beautifully executed sleeper hold!
-  _failText: Your insides are now outsides...
+  _choiceName: Get out of Dodge
+  _buttonText: RUN
+  _winText: You sprinted far enough away for the explosion to have no effect on you!
+    The same can't be said for the wildlife...
+  _failText: Just a little too slow, the blast catches your back and you're sent
+    flying forwards and into a tree. Yeeowch...
   _choiceImage: {fileID: 0}
   _statIndex: 0
   _enemyDiceAmount: 4

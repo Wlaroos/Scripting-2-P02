@@ -13,13 +13,15 @@ MonoBehaviour:
   m_Name: TestChoice02
   m_EditorClassIdentifier: 
   _myEvent: {fileID: 11400000}
-  _choiceName: Get the hell out of there!
-  _buttonText: Run
-  _winText: You successfully escaped the bear! For now...
-  _failText: The bear caught up to you and mauled your face!
+  _choiceName: Chase the Thief
+  _buttonText: Sprint
+  _winText: You catch up to the thief and tackle them to the ground, wrestling your
+    money away from their grubby hands.
+  _failText: The thief does some insane parkour moves and manages to escape from
+    your stubby legged pursuit.
   _choiceImage: {fileID: 0}
   _statIndex: 1
-  _enemyDiceAmount: 3
+  _enemyDiceAmount: 4
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30,9 +32,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d893bebf9f5a39a4fb34e6a773c0df43, type: 3}
-  m_Name: Surprise Bear Encounter 5
+  m_Name: Someone Picked Your Pockets!
   m_EditorClassIdentifier: 
-  _eventName: Surprise Bear Encounter
+  _eventName: Someone Picked Your Pockets!
   _choices:
   - {fileID: 7792873216569513333}
   - {fileID: -5700892277757841468}
@@ -50,13 +52,14 @@ MonoBehaviour:
   m_Name: TestChoice01
   m_EditorClassIdentifier: 
   _myEvent: {fileID: 11400000}
-  _choiceName: Talk about the stock market fiasco
-  _buttonText: Negotiate
-  _winText: You successfully got the bear to purchase a bond!
-  _failText: The bear did not want to liquidate his stocks...
+  _choiceName: Convince the Thief
+  _buttonText: Persuade
+  _winText: You get your money back and the thief has a change of heart, becoming
+    a better person!
+  _failText: They sock you in the face and run away.
   _choiceImage: {fileID: 0}
   _statIndex: 4
-  _enemyDiceAmount: 2
+  _enemyDiceAmount: 3
 --- !u!114 &7792873216569513333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,10 +73,12 @@ MonoBehaviour:
   m_Name: TestChoice03
   m_EditorClassIdentifier: 
   _myEvent: {fileID: 11400000}
-  _choiceName: Fight the bear!
-  _buttonText: Attack
-  _winText: You subdued the bear with a beautifully executed sleeper hold!
-  _failText: Your insides are now outsides...
+  _choiceName: Subdue the Thief
+  _buttonText: Cast
+  _winText: The knock the thief out with a sleeper spell. You grab your coins as
+    they snooze away on the ground.
+  _failText: 'You miss the thief and send a random passerby into dreamland. You flee
+    the scene before the guards catch on. '
   _choiceImage: {fileID: 0}
-  _statIndex: 0
-  _enemyDiceAmount: 4
+  _statIndex: 3
+  _enemyDiceAmount: 5
