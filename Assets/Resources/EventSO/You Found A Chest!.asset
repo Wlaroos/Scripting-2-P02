@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: TestChoice02
   m_EditorClassIdentifier: 
   _myEvent: {fileID: 11400000}
-  _choiceName: Get the hell out of there!
-  _buttonText: Run
-  _winText: You successfully escaped the bear! For now...
-  _failText: The bear caught up to you and mauled your face!
+  _choiceName: Lockpick the Chest
+  _buttonText: Open
+  _winText: You successfully opened the chest, disabling the traps!
+  _failText: The chest turned out to be a mimic, and feels very violated. It takes
+    a bite out of your hand before scurrying away.
   _choiceImage: {fileID: 0}
   _statIndex: 1
-  _enemyDiceAmount: 4
+  _enemyDiceAmount: 3
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30,9 +31,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d893bebf9f5a39a4fb34e6a773c0df43, type: 3}
-  m_Name: Surprise Bear Encounter
+  m_Name: You Found A Chest!
   m_EditorClassIdentifier: 
-  _eventName: Surprise Bear Encounter
+  _eventName: You Found A Chest!
   _choices:
   - {fileID: 7792873216569513333}
   - {fileID: -5700892277757841468}
@@ -50,13 +51,13 @@ MonoBehaviour:
   m_Name: TestChoice01
   m_EditorClassIdentifier: 
   _myEvent: {fileID: 11400000}
-  _choiceName: Talk about the stock market fiasco
-  _buttonText: Negotiate
-  _winText: You successfully got the bear to purchase a bond!
-  _failText: The bear did not want to liquidate his stocks...
+  _choiceName: Break the Chest
+  _buttonText: Smash
+  _winText: The chest turned out to be a mimic! Turns out "caution" does pay off!
+  _failText: You were too weak and bruised your hand...
   _choiceImage: {fileID: 0}
-  _statIndex: 4
-  _enemyDiceAmount: 2
+  _statIndex: 0
+  _enemyDiceAmount: 4
 --- !u!114 &7792873216569513333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,10 +71,11 @@ MonoBehaviour:
   m_Name: TestChoice03
   m_EditorClassIdentifier: 
   _myEvent: {fileID: 11400000}
-  _choiceName: Fight the bear!
-  _buttonText: Attack
-  _winText: You subdued the bear with a beautifully executed sleeper hold!
-  _failText: Your insides are now outsides...
+  _choiceName: Analyze the Chest
+  _buttonText: Look
+  _winText: You realized the chest was a mimic and went on your way.
+  _failText: You didn't notice the chest was a mimic and tried opening it! You're
+    now missing most of your left leg...
   _choiceImage: {fileID: 0}
-  _statIndex: 0
-  _enemyDiceAmount: 5
+  _statIndex: 3
+  _enemyDiceAmount: 4

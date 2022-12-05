@@ -45,7 +45,7 @@ public class EnemyTurnGameState : GameState
     {
         // Turn Over
         EnemyTurnEnded?.Invoke();
-        StateMachine.ChangeState<PlayerTurnGameState>();
+        StateMachine.ChangeState<EventResultsState>();
     }
 
 }

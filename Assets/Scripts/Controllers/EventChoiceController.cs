@@ -60,6 +60,13 @@ public class EventChoiceController : MonoBehaviour
             choice.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().text = _currentEvent.Choices[i].ButtonText;
             choice.transform.GetChild(2).GetComponent<Image>().sprite = _currentEvent.Choices[i].ChoiceImage;
 
+            if (_currentEvent.Choices[i].EnemyDiceAmount >= 1)
+                choice.transform.GetChild(3).GetChild(3).gameObject.SetActive(true);
+            if (_currentEvent.Choices[i].EnemyDiceAmount >= 3)
+                choice.transform.GetChild(3).GetChild(4).gameObject.SetActive(true);
+            if (_currentEvent.Choices[i].EnemyDiceAmount >= 5)
+                choice.transform.GetChild(3).GetChild(5).gameObject.SetActive(true);
+
             // Allows me to hold onto the choice and button refs
             Button button = choice.transform.GetChild(1).GetComponent<Button>();
             int j = i;
@@ -71,7 +78,7 @@ public class EventChoiceController : MonoBehaviour
     {
         _SMRef.SetEventChoice(choice);
         _SMRef.OnStateExit();
-        _SMRef.ChangeState<MinigameState>();
+        _SMRef.ChangeState<EnemyTurnGameState>();
         button.onClick.RemoveAllListeners();
     }
 

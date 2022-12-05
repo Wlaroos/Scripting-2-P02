@@ -7,7 +7,7 @@ public class DiceController : MonoBehaviour
 
     [SerializeField] Dice _diceRef;
     [SerializeField] GameSM _SMRef;
-    [SerializeField] Vector3 _throwPosition = new Vector3(0, -4, 3.5f);
+    [SerializeField] Vector3 _throwPosition = new Vector3(0, -4, 1f);
 
     private Color[] _statColors = new Color[] { new Color(1, .65f, 0), new Color(1, 1, 0), new Color(1, 0, 0), new Color(0, 1, 1), new Color(.6f, 0.1f, 1), };
 
@@ -114,19 +114,19 @@ public class DiceController : MonoBehaviour
                 switch (_SMRef.CurrentState)
                 {
                     case InitialStatRollState:
-                        _SMRef.RollConfirm.gameObject.SetActive(true);
+                        StartCoroutine(RollConfirmDelay());
                         //_SMRef.OnStateExit();
                         //_SMRef.ChangeState<MapState>();
                         break;
                     case EnemyTurnGameState:
                         _SMRef.SetEnemyRoll(_diceTotalScore);
-                        _SMRef.RollConfirm.gameObject.SetActive(true);
+                        StartCoroutine(RollConfirmDelay());
                         //_SMRef.OnStateExit();
                         //_SMRef.ChangeState<EventResultsState>();
                         break;
                     case PlayerTurnGameState:
                         _SMRef.SetPlayerRoll(_diceTotalScore);
-                        _SMRef.RollConfirm.gameObject.SetActive(true);
+                        StartCoroutine(RollConfirmDelay());
                         //_SMRef.OnStateExit();
                         //_SMRef.ChangeState<EnemyTurnGameState>();
                         break;
@@ -139,6 +139,12 @@ public class DiceController : MonoBehaviour
                 _rolled = false;
             }
         }
+    }
+
+    IEnumerator RollConfirmDelay()
+    {
+        yield return new WaitForSeconds(1f);
+        _SMRef.RollConfirm.gameObject.SetActive(true);
     }
 
 }

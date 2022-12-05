@@ -19,7 +19,7 @@ MonoBehaviour:
   _failText: The bear caught up to you and mauled your face!
   _choiceImage: {fileID: 0}
   _statIndex: 1
-  _enemyDiceAmount: 4
+  _enemyDiceAmount: 3
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30,7 +30,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d893bebf9f5a39a4fb34e6a773c0df43, type: 3}
-  m_Name: Surprise Bear Encounter
+  m_Name: Unstable Magic Event
   m_EditorClassIdentifier: 
   _eventName: Surprise Bear Encounter
   _choices:
@@ -76,4 +76,4 @@ MonoBehaviour:
   _failText: Your insides are now outsides...
   _choiceImage: {fileID: 0}
   _statIndex: 0
-  _enemyDiceAmount: 5
+  _enemyDiceAmount: 4

@@ -18,6 +18,9 @@ public class Dice : MonoBehaviour
     protected int _diceValue;
     public int DiceValue => _diceValue;
 
+    [SerializeField] ParticleSystem _resolveParticles;
+    [SerializeField] GameObject _resolvePopup;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
@@ -135,6 +138,21 @@ public class Dice : MonoBehaviour
         _diceValue = iValue;
 
         DiceValueReturned?.Invoke(_diceValue, _mr.material.color);
+
+        Vector3 pos = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
+
+        ParticleSystem particles = Instantiate(_resolveParticles, transform.position, Quaternion.identity);
+
+        ParticleSystem.MainModule settings = particles.main;
+        settings.startColor = new ParticleSystem.MinMaxGradient(_mr.material.color);
+
+        ScorePopup popup = Instantiate(_resolvePopup, pos, Quaternion.identity).GetComponent<ScorePopup>();
+
+        popup.transform.rotation = Quaternion.Euler(45, 0, 0);
+
+        popup.text.text = ("[<color=#" + ColorUtility.ToHtmlStringRGB(_mr.material.color) + ">" + iValue + "</color>]");
+        popup.text.color = Color.white;
+        popup.text.outlineColor = Color.black;
 
         return (iValue, _mr.material.color);
     }

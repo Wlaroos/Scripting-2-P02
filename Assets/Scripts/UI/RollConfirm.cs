@@ -50,14 +50,14 @@ public class RollConfirm : MonoBehaviour
     void PlayerConfirm()
     {
         _SMRef.OnStateExit();
-        _SMRef.ChangeState<EnemyTurnGameState>();
+        _SMRef.ChangeState<EventResultsState>();
         gameObject.SetActive(false);
     }
 
     void EnemyConfirm()
     {
         _SMRef.OnStateExit();
-        _SMRef.ChangeState<EventResultsState>();
+        _SMRef.ChangeState<MinigameState>();
         gameObject.SetActive(false);
     }
 
