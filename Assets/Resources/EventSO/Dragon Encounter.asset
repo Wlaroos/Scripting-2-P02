@@ -15,7 +15,7 @@ MonoBehaviour:
   _myEvent: {fileID: 11400000}
   _choiceName: Seduce the Dragon
   _buttonText: ;)
-  _winText: You're taken back to the lair for a good time. Congrats!
+  _winText: You're taken back to the lair. Congrats!
   _failText: You think the dragon is leaning in for a kiss, but ends up grabbing
     onto you and thrashing you around in it's mouth like a rabid dog.
   _choiceImage: {fileID: 0}
@@ -74,7 +74,7 @@ MonoBehaviour:
   _myEvent: {fileID: 11400000}
   _choiceName: Fight the Dragon
   _buttonText: Attack
-  _winText: You slay the dragon with grace and skill.
+  _winText: You slay the dragon with maximum POWER.
   _failText: Dragon scales are harder than you thought. Your sword shatters into
     pieces and you're smacked away by the dragon's tail.
   _choiceImage: {fileID: 0}

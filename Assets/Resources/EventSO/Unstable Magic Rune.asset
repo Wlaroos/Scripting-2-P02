@@ -31,7 +31,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d893bebf9f5a39a4fb34e6a773c0df43, type: 3}
-  m_Name: Unstable Magic Event
+  m_Name: Unstable Magic Rune
   m_EditorClassIdentifier: 
   _eventName: Unstable Magic Event
   _choices:

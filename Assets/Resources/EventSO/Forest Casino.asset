@@ -15,10 +15,10 @@ MonoBehaviour:
   _myEvent: {fileID: 11400000}
   _choiceName: Distract the Dealer
   _buttonText: Distract
-  _winText: While the dealer was bashfully looking away, you put 4 aces in your hand.
+  _winText: While the dealer was bashfully looking away, you put 2 aces in your hand.
     "Amazing!"
   _failText: While the dealer was bashfully looking away, you put 5 aces in your
-    hand. Why did you have 5 aces? No really, why?
+    hand. Why did you have 5 aces? No, really. Why?
   _choiceImage: {fileID: 0}
   _statIndex: 4
   _enemyDiceAmount: 5
