@@ -19,7 +19,9 @@ MonoBehaviour:
     "Amazing!"
   _failText: While the dealer was bashfully looking away, you put 5 aces in your
     hand. Why did you have 5 aces? No, really. Why?
-  _choiceImage: {fileID: 0}
+  _choiceImage: {fileID: 21300000, guid: 638c2bfeae83e6d4eb0b3a4600ce78c5, type: 3}
+  _winChoiceImage: {fileID: 21300000, guid: 16bdc616cc98ca5479690caa1bdbb7ec, type: 3}
+  _loseChoiceImage: {fileID: 21300000, guid: 370988d872726224db3756bccdff3672, type: 3}
   _statIndex: 4
   _enemyDiceAmount: 5
 --- !u!114 &11400000
@@ -38,6 +40,7 @@ MonoBehaviour:
   _choices:
   - {fileID: 4530713936659199015}
   - {fileID: -5700892277757841468}
+  _eventImage: {fileID: 21300000, guid: 638c2bfeae83e6d4eb0b3a4600ce78c5, type: 3}
 --- !u!114 &4530713936659199015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,6 +59,8 @@ MonoBehaviour:
   _winText: You counted cards without being caught! You leave with big winnings!
   _failText: The dealer caught on and beat you half to death. No more gambling for
     you...
-  _choiceImage: {fileID: 0}
+  _choiceImage: {fileID: 21300000, guid: 638c2bfeae83e6d4eb0b3a4600ce78c5, type: 3}
+  _winChoiceImage: {fileID: 21300000, guid: b1bbd850a835c384fabb8596734982d7, type: 3}
+  _loseChoiceImage: {fileID: 21300000, guid: 5ba478dbd063db842b7e3e1610b1f008, type: 3}
   _statIndex: 3
   _enemyDiceAmount: 5

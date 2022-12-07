@@ -18,6 +18,9 @@ public class EventSO : ScriptableObject
 
     public List<ChoiceSO> Choices { get => _choices; set => _choices = value; }
 
+    [SerializeField] private Sprite _eventImage;
+    public Sprite EventImage { get => _eventImage; }
+
     // Creates a new choice scriptable object as a child
 #if UNITY_EDITOR
     [ContextMenu("Make New")]

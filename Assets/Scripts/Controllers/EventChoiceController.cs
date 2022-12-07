@@ -10,6 +10,7 @@ public class EventChoiceController : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI _eventTitleText;
     [SerializeField] GameObject _choiceUIPrefab;
+    [SerializeField] SpriteRenderer _eventImage;
 
     EventSO[] _allEvents;
     EventSO _currentEvent;
@@ -45,6 +46,8 @@ public class EventChoiceController : MonoBehaviour
         _currentEvent = _allEvents[index];
 
         _eventTitleText.text = _currentEvent.EventName;
+        _eventImage.sprite = _currentEvent.EventImage;
+        _eventImage.gameObject.SetActive(true);
 
         AddChoices(_currentEvent.Choices.Count);
     }

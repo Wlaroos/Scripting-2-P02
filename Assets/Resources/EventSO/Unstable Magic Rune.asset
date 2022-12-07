@@ -18,7 +18,9 @@ MonoBehaviour:
   _winText: You... you just... you sat on top of the bomb and walked away with only
     a tattered shirt. Nice going I guess...
   _failText: You blew up. What did you expect to happen?
-  _choiceImage: {fileID: 0}
+  _choiceImage: {fileID: 21300000, guid: 221a57828f63e5b4da28d96283f341a9, type: 3}
+  _winChoiceImage: {fileID: 21300000, guid: bc5eb1165c0da0b42ab590d9d863d536, type: 3}
+  _loseChoiceImage: {fileID: 21300000, guid: 8febb245521903d44bf08a8d0385f54c, type: 3}
   _statIndex: 2
   _enemyDiceAmount: 5
 --- !u!114 &11400000
@@ -33,11 +35,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d893bebf9f5a39a4fb34e6a773c0df43, type: 3}
   m_Name: Unstable Magic Rune
   m_EditorClassIdentifier: 
-  _eventName: Unstable Magic Event
+  _eventName: Unstable Magic Rune
   _choices:
   - {fileID: 7792873216569513333}
   - {fileID: -5700892277757841468}
   - {fileID: 4530713936659199015}
+  _eventImage: {fileID: 21300000, guid: 221a57828f63e5b4da28d96283f341a9, type: 3}
 --- !u!114 &4530713936659199015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53,11 +56,13 @@ MonoBehaviour:
   _myEvent: {fileID: 11400000}
   _choiceName: Defuse the Magic Bomb
   _buttonText: Chant
-  _winText: Success! You decoded the magic signature and sealed it away before it
-    grew too large to contain.
+  _winText: Success! You decoded the magic signature and broke the rune before it
+    exploded!
   _failText: You should have read up on the runic language. The bomb goes off and
     you are much less whole than before.
-  _choiceImage: {fileID: 0}
+  _choiceImage: {fileID: 21300000, guid: 221a57828f63e5b4da28d96283f341a9, type: 3}
+  _winChoiceImage: {fileID: 21300000, guid: c438467632c09944f87aa53af05b5f5b, type: 3}
+  _loseChoiceImage: {fileID: 21300000, guid: 7f7100416b19bd445be1c61d3a407bd7, type: 3}
   _statIndex: 3
   _enemyDiceAmount: 6
 --- !u!114 &7792873216569513333
@@ -79,6 +84,8 @@ MonoBehaviour:
     The same can't be said for the wildlife...
   _failText: Just a little too slow, the blast catches your back and you're sent
     flying forwards and into a tree. Yeeowch...
-  _choiceImage: {fileID: 0}
-  _statIndex: 0
+  _choiceImage: {fileID: 21300000, guid: 221a57828f63e5b4da28d96283f341a9, type: 3}
+  _winChoiceImage: {fileID: 21300000, guid: 95b0187320d4e664da031597e5d52dfa, type: 3}
+  _loseChoiceImage: {fileID: 21300000, guid: 675d71c28d8a8d44ba47d2c62a22757c, type: 3}
+  _statIndex: 1
   _enemyDiceAmount: 4

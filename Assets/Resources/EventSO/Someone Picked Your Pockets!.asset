@@ -19,7 +19,9 @@ MonoBehaviour:
     money away from their grubby hands.
   _failText: The thief does some insane parkour moves and manages to escape from
     your stubby legged pursuit.
-  _choiceImage: {fileID: 0}
+  _choiceImage: {fileID: 21300000, guid: 024a8c6361dc5f34086d26e96a4630c1, type: 3}
+  _winChoiceImage: {fileID: 21300000, guid: 1b9baf0adc4d52749bd3544d1c3f1fc6, type: 3}
+  _loseChoiceImage: {fileID: 21300000, guid: 6e095de34daebaa478f564eb85895293, type: 3}
   _statIndex: 1
   _enemyDiceAmount: 4
 --- !u!114 &11400000
@@ -39,6 +41,7 @@ MonoBehaviour:
   - {fileID: 7792873216569513333}
   - {fileID: -5700892277757841468}
   - {fileID: 4530713936659199015}
+  _eventImage: {fileID: 21300000, guid: 024a8c6361dc5f34086d26e96a4630c1, type: 3}
 --- !u!114 &4530713936659199015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57,7 +60,9 @@ MonoBehaviour:
   _winText: You get your money back and the thief has a change of heart, becoming
     a better person!
   _failText: They sock you in the face and run away.
-  _choiceImage: {fileID: 0}
+  _choiceImage: {fileID: 21300000, guid: 024a8c6361dc5f34086d26e96a4630c1, type: 3}
+  _winChoiceImage: {fileID: 21300000, guid: 6827578be061ae04188c650eae33df44, type: 3}
+  _loseChoiceImage: {fileID: 21300000, guid: 8a33237a224f33847a448e565195a85d, type: 3}
   _statIndex: 4
   _enemyDiceAmount: 3
 --- !u!114 &7792873216569513333
@@ -79,6 +84,8 @@ MonoBehaviour:
     they snooze away on the ground.
   _failText: 'You miss the thief and send a random passerby into dreamland. You flee
     the scene before the guards catch on. '
-  _choiceImage: {fileID: 0}
+  _choiceImage: {fileID: 21300000, guid: 024a8c6361dc5f34086d26e96a4630c1, type: 3}
+  _winChoiceImage: {fileID: 21300000, guid: 54ae4ec6fb46a1a4ea1b5b8eaf0dbb62, type: 3}
+  _loseChoiceImage: {fileID: 21300000, guid: 41061f21c61fc614aa5be5ec7356195b, type: 3}
   _statIndex: 3
   _enemyDiceAmount: 5

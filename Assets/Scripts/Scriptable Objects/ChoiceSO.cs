@@ -17,6 +17,8 @@ public class ChoiceSO : ScriptableObject
     [TextArea(3, 10)]
     [SerializeField] private string _failText;
     [SerializeField] private Sprite _choiceImage;
+    [SerializeField] private Sprite _winChoiceImage;
+    [SerializeField] private Sprite _loseChoiceImage;
     [SerializeField] private int _statIndex;
     [SerializeField] private int _enemyDiceAmount;
 
@@ -27,6 +29,8 @@ public class ChoiceSO : ScriptableObject
     public string WinText { get => _winText; }
     public string FailText { get => _failText; }
     public Sprite ChoiceImage { get => _choiceImage; }
+    public Sprite WinChoiceImage { get => _winChoiceImage; }
+    public Sprite LoseChoiceImage { get => _loseChoiceImage; }
     public int StatIndex { get => _statIndex; }
     public int EnemyDiceAmount { get => _enemyDiceAmount; }
 

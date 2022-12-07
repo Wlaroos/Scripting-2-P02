@@ -8,6 +8,7 @@ public class EventResultsController : MonoBehaviour
 {
 
     [SerializeField] GameSM _SMRef;
+    [SerializeField] TextMeshProUGUI _healthText;
     [SerializeField] TextMeshProUGUI _rollResultText;
     [SerializeField] TextMeshProUGUI _eventResultText;
     [SerializeField] TextMeshProUGUI _statResultsText;
@@ -23,15 +24,16 @@ public class EventResultsController : MonoBehaviour
             _rollResultText.text = ("Your Roll: [<color=green>" + _SMRef.PlayerRoll + "</color>] --- Event Roll: [<color=red>" + _SMRef.EnemyRoll + "</color>]");
             _eventResultText.text = _SMRef.EventChoice.WinText;
             _statResultsText.text = ("");
-            _eventResultImage.sprite = null;
+            _eventResultImage.sprite = _SMRef.EventChoice.WinChoiceImage;
         }
        else
         {
             _rollResultText.text = ("Your Roll: [<color=red>" + _SMRef.PlayerRoll + "</color>] --- Event Roll: [<color=green>" + _SMRef.EnemyRoll + "</color>]");
             _eventResultText.text = _SMRef.EventChoice.FailText;
             _statResultsText.text = ("");
-            _eventResultImage.sprite = null;
+            _eventResultImage.sprite = _SMRef.EventChoice.LoseChoiceImage;
             _SMRef.ChangePlayerHealth(-1);
+            _healthText.text = ("Health: " + _SMRef.PlayerHealth);
         }
     }
 

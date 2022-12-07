@@ -17,7 +17,9 @@ MonoBehaviour:
   _buttonText: Run
   _winText: You successfully escaped the bear! For now...
   _failText: The bear caught up to you and mauled your face!
-  _choiceImage: {fileID: 0}
+  _choiceImage: {fileID: 21300000, guid: d7b326aff3e53564aa60dddc502dfffa, type: 3}
+  _winChoiceImage: {fileID: 21300000, guid: 30ada94fa00b9214d9d7267a2670d337, type: 3}
+  _loseChoiceImage: {fileID: 21300000, guid: a19691d3cddbd0043bad374a2c2f05ef, type: 3}
   _statIndex: 1
   _enemyDiceAmount: 4
 --- !u!114 &11400000
@@ -37,6 +39,7 @@ MonoBehaviour:
   - {fileID: 7792873216569513333}
   - {fileID: -5700892277757841468}
   - {fileID: 4530713936659199015}
+  _eventImage: {fileID: 21300000, guid: d7b326aff3e53564aa60dddc502dfffa, type: 3}
 --- !u!114 &4530713936659199015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54,7 +57,9 @@ MonoBehaviour:
   _buttonText: Negotiate
   _winText: You successfully got the bear to purchase a bond!
   _failText: The bear did not want to liquidate his stocks...
-  _choiceImage: {fileID: 0}
+  _choiceImage: {fileID: 21300000, guid: d7b326aff3e53564aa60dddc502dfffa, type: 3}
+  _winChoiceImage: {fileID: 21300000, guid: 1e6ebd2068c19324d97a33d8c796e3ae, type: 3}
+  _loseChoiceImage: {fileID: 21300000, guid: ca9a10d30e9c2dd4d932a59ad88fbae5, type: 3}
   _statIndex: 4
   _enemyDiceAmount: 2
 --- !u!114 &7792873216569513333
@@ -74,6 +79,8 @@ MonoBehaviour:
   _buttonText: Attack
   _winText: You subdued the bear with a beautifully executed sleeper hold!
   _failText: Your insides are now outsides...
-  _choiceImage: {fileID: 0}
+  _choiceImage: {fileID: 21300000, guid: d7b326aff3e53564aa60dddc502dfffa, type: 3}
+  _winChoiceImage: {fileID: 21300000, guid: 6a004ee041ccac94ab053b0a2d159e0f, type: 3}
+  _loseChoiceImage: {fileID: 21300000, guid: b267655a46455134c8ab0989dc995885, type: 3}
   _statIndex: 0
   _enemyDiceAmount: 5

@@ -18,7 +18,9 @@ MonoBehaviour:
   _winText: You successfully opened the chest, disabling the traps!
   _failText: The chest turned out to be a mimic, and feels very violated. It takes
     a bite out of your hand before scurrying away.
-  _choiceImage: {fileID: 0}
+  _choiceImage: {fileID: 21300000, guid: e394047aa4736de4593170bf103476c8, type: 3}
+  _winChoiceImage: {fileID: 21300000, guid: 22d8e1b0d1720e84a9d533dcf74095d2, type: 3}
+  _loseChoiceImage: {fileID: 21300000, guid: d9953daafc85edd47a74e6bfc3063abf, type: 3}
   _statIndex: 1
   _enemyDiceAmount: 3
 --- !u!114 &11400000
@@ -38,6 +40,7 @@ MonoBehaviour:
   - {fileID: 7792873216569513333}
   - {fileID: -5700892277757841468}
   - {fileID: 4530713936659199015}
+  _eventImage: {fileID: 21300000, guid: e394047aa4736de4593170bf103476c8, type: 3}
 --- !u!114 &4530713936659199015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53,9 +56,11 @@ MonoBehaviour:
   _myEvent: {fileID: 11400000}
   _choiceName: Break the Chest
   _buttonText: Smash
-  _winText: The chest turned out to be a mimic! Turns out "caution" does pay off!
+  _winText: The chest was a mimic! Turns out "caution" does pay off!
   _failText: You were too weak and bruised your hand...
-  _choiceImage: {fileID: 0}
+  _choiceImage: {fileID: 21300000, guid: e394047aa4736de4593170bf103476c8, type: 3}
+  _winChoiceImage: {fileID: 21300000, guid: adc18568025984d4582cfb3f9d51cc36, type: 3}
+  _loseChoiceImage: {fileID: 21300000, guid: ce52436914e622a4ab831d45d572ef00, type: 3}
   _statIndex: 0
   _enemyDiceAmount: 4
 --- !u!114 &7792873216569513333
@@ -76,6 +81,8 @@ MonoBehaviour:
   _winText: You realized the chest was a mimic and went on your way.
   _failText: You didn't notice the chest was a mimic and tried opening it! You're
     now missing most of your left leg...
-  _choiceImage: {fileID: 0}
+  _choiceImage: {fileID: 21300000, guid: e394047aa4736de4593170bf103476c8, type: 3}
+  _winChoiceImage: {fileID: 21300000, guid: 58d4ead7f0d0d8a4bb8640607b35d42c, type: 3}
+  _loseChoiceImage: {fileID: 21300000, guid: 058198c4cd841524d8516784a4e8d977, type: 3}
   _statIndex: 3
   _enemyDiceAmount: 4
