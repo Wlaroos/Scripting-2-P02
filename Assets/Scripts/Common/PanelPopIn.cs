@@ -45,7 +45,7 @@ public class PanelPopIn : MonoBehaviour
 
     private void OnEnable()
     {
-        AudioManager.Instance.PlaySound2D(_swooshSFX, .5f);
+        AudioManager.Instance.PlaySound2D(_swooshSFX, .05f);
         PopIn();
     }
 

@@ -1730,6 +1730,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 791396251807656344, guid: dc40bc3e62e38124db0dd5c56db713a8, type: 3}
+      propertyPath: _currentMusicVolume
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 4664599750946544681, guid: dc40bc3e62e38124db0dd5c56db713a8, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -1777,6 +1781,10 @@ PrefabInstance:
     - target: {fileID: 4664599750946544683, guid: dc40bc3e62e38124db0dd5c56db713a8, type: 3}
       propertyPath: m_Name
       value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664599751101831079, guid: dc40bc3e62e38124db0dd5c56db713a8, type: 3}
+      propertyPath: m_audioClip
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc40bc3e62e38124db0dd5c56db713a8, type: 3}
@@ -7428,6 +7436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1edc36ecc7a55af43bccd7d8f2c82dd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _music: {fileID: 8300000, guid: 2d49dd46e1e62ed4e88d6cdf3cac9f2e, type: 3}
   _input: {fileID: 1614727412}
   _uiController: {fileID: 386466283}
   _diceController: {fileID: 678203686}
