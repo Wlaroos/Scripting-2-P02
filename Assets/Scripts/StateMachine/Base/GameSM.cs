@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class GameSM : StateMachine
 {
-    [SerializeField] AudioClip _music;
-
     [SerializeField] InputController _input;
     public InputController Input => _input;
 
@@ -59,8 +57,6 @@ public class GameSM : StateMachine
 
     void Start()
     {
-        AudioManager.Instance.PlayMusic(_music);
-
         ChangeState<SetupGameState>();
         _mapController.gameObject.SetActive(false);
         _eventChoiceController.gameObject.SetActive(false);

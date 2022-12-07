@@ -19,7 +19,10 @@ public class LoseState : GameState
 
     public override void Tick()
     {
-
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     public override void Exit()

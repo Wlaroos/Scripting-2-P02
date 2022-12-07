@@ -269,7 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _musicSource1: {fileID: 4664599751101831079}
   _musicSource2: {fileID: 4664599750689680078}
-  _currentMusicVolume: 1
+  _currentMusicVolume: 0.15
 --- !u!114 &6384716294822083127
 MonoBehaviour:
   m_ObjectHideFlags: 0
