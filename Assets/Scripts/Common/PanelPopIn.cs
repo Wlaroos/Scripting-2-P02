@@ -24,6 +24,8 @@ public class PanelPopIn : MonoBehaviour
     [SerializeField] float _startingOpacity = .5f;
     [SerializeField] float _opacityChangeSpeed = 0.1f;      // in seconds
 
+    [SerializeField] AudioClip _swooshSFX;
+
     public event Action OnPopStart = delegate { };
 
     Coroutine _popRoutine = null;
@@ -43,6 +45,7 @@ public class PanelPopIn : MonoBehaviour
 
     private void OnEnable()
     {
+        AudioManager.Instance.PlaySound2D(_swooshSFX, .5f);
         PopIn();
     }
 

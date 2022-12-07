@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class UILinePointsTest : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class UILinePointsTest : MonoBehaviour
     float _imageWidth = 50f;
 
     RectTransform _rectTransRef;
+
+    [SerializeField] AudioClip _buttonClickSFX;
+    [SerializeField] AudioClip _buttonHoverSFX;
 
     private void Awake()
     {
@@ -48,7 +52,7 @@ public class UILinePointsTest : MonoBehaviour
         // Create and set default values for every point needed -- Also, add each gameobject to the _images List
         for (int j = 0; j < _totalPointCount; j++)
         {
-            _images.Add(new GameObject("Point" + j + 1, typeof(RectTransform), typeof(CanvasRenderer), typeof(Image), typeof(Button)));
+            _images.Add(new GameObject("Point" + j + 1, typeof(RectTransform), typeof(CanvasRenderer), typeof(Image), typeof(Button), typeof(EventTrigger)));
 
             Transform trans = _images[j].transform;
             trans.SetParent(transform);
@@ -70,7 +74,6 @@ public class UILinePointsTest : MonoBehaviour
             // Lambda expression to inline a method with parameters
             button.onClick.AddListener(() => ButtonClick(button));
             button.interactable = false;
-
         }
     }
 
@@ -79,9 +82,16 @@ public class UILinePointsTest : MonoBehaviour
         //Debug.Log(button.name);
 
         // Later on, set which event pool to choose from here
+        AudioManager.Instance.PlaySound2D(_buttonClickSFX, .5f, UnityEngine.Random.Range(.8f, 1.2f));
+
         _SMRef.OnStateExit();
         _SMRef.ChangeState<EventChoiceState>();
         EnableDisableButtons();
+    }
+
+    void OnPointerEnterDelegate(PointerEventData data)
+    {
+        AudioManager.Instance.PlaySound2D(_buttonHoverSFX, .25f);
     }
 
     // Gives the LineRenderer script time to setup
@@ -183,8 +193,20 @@ public class UILinePointsTest : MonoBehaviour
                 {
                     _images[i].GetComponent<Button>().interactable = true;
                     _previousPoints.Add(i);
+
+                    EventTrigger et = _images[i].transform.GetComponent<EventTrigger>();
+                    EventTrigger.Entry entry = new EventTrigger.Entry();
+                    entry.eventID = EventTriggerType.PointerEnter;
+                    entry.callback.AddListener((data) => { OnPointerEnterDelegate((PointerEventData)data); });
+                    et.triggers.Add(entry);
                 }
             }
+
+            EventTrigger et2 = _images[0].transform.GetComponent<EventTrigger>();
+            EventTrigger.Entry entry2 = new EventTrigger.Entry();
+            entry2.eventID = EventTriggerType.PointerEnter;
+            entry2.callback.AddListener((data) => { OnPointerEnterDelegate((PointerEventData)data); });
+            et2.triggers.Add(entry2);
 
             _images[0].GetComponent<Button>().interactable = true;
             _previousPoints.Add(0);

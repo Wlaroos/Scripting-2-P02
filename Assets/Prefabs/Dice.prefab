@@ -1561,6 +1561,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _resolveParticles: {fileID: 8244829295365473348, guid: 64cf88dea35cf204e800cdafd67c0744, type: 3}
   _resolvePopup: {fileID: 8392504496944969625, guid: 206ed28629ad86741a127570bd900c51, type: 3}
+  _diceResolveSFX: {fileID: 8300000, guid: 6aa5bb77e4c5c5f49a4ea734dd5e2892, type: 3}
+  _diceThrowSFX: {fileID: 8300000, guid: c8a92f62795756046b3a61cfa55c5e42, type: 3}
+  _diceHitSFX: {fileID: 8300000, guid: c9916c43c0102d2498ac25f8f651336e, type: 3}
 --- !u!1 &8812588664230061920
 GameObject:
   m_ObjectHideFlags: 0

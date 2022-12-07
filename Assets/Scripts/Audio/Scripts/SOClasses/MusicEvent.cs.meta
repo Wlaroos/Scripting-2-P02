@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: 2cceb20ba9e116d42a1c95bd1218fbbf
+guid: 408a86abe3edccb42ade899bfe5b202f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - _swooshSFX: {fileID: 8300000, guid: be9f9dc85c15c194b848f3037ab90ff8, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

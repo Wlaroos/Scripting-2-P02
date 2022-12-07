@@ -20,6 +20,9 @@ public class Dice : MonoBehaviour
 
     [SerializeField] ParticleSystem _resolveParticles;
     [SerializeField] GameObject _resolvePopup;
+    [SerializeField] AudioClip _diceResolveSFX;
+    [SerializeField] AudioClip _diceThrowSFX;
+    [SerializeField] AudioClip _diceHitSFX;
 
     private void Awake()
     {
@@ -36,6 +39,11 @@ public class Dice : MonoBehaviour
         //{
         //    RollDice();
         //}
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        AudioManager.Instance.PlaySound2D(_diceHitSFX, .15f, UnityEngine.Random.Range(.8f, 1.2f));
     }
 
     private void FixedUpdate()
@@ -65,6 +73,8 @@ public class Dice : MonoBehaviour
             _rb.useGravity = true;
             _rb.AddTorque(UnityEngine.Random.Range(0, 750), UnityEngine.Random.Range(0, 750), UnityEngine.Random.Range(0, 750));
             _rb.AddForce(UnityEngine.Random.Range(-200, 200), 0, UnityEngine.Random.Range(75, 200));
+
+            AudioManager.Instance.PlaySound2D(_diceThrowSFX, .5f, UnityEngine.Random.Range(.8f, 1.2f));
         }
         else if(_thrown && _hasLanded)
         {
@@ -92,6 +102,8 @@ public class Dice : MonoBehaviour
         _rb.useGravity = true;
         _rb.AddTorque(UnityEngine.Random.Range(0, 750), UnityEngine.Random.Range(0, 750), UnityEngine.Random.Range(0, 750));
         _rb.AddForce(UnityEngine.Random.Range(-200, 200), 0, UnityEngine.Random.Range(75, 200));
+
+        AudioManager.Instance.PlaySound2D(_diceThrowSFX, .5f, UnityEngine.Random.Range(.8f, 1.2f));
     }
 
     // Testing different directions to set a value to the dice. Will return -1 if stuck
@@ -153,6 +165,8 @@ public class Dice : MonoBehaviour
         popup.text.text = ("[<color=#" + ColorUtility.ToHtmlStringRGB(_mr.material.color) + ">" + iValue + "</color>]");
         popup.text.color = Color.white;
         popup.text.outlineColor = Color.black;
+
+        AudioManager.Instance.PlaySound2D(_diceResolveSFX, .5f, UnityEngine.Random.Range(.8f,1.2f));
 
         return (iValue, _mr.material.color);
     }

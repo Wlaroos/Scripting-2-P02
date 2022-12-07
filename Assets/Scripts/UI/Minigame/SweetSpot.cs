@@ -11,6 +11,10 @@ public class SweetSpot : MonoBehaviour
     [SerializeField] Slider _sliderRef;
     [SerializeField] float sliderSpeed = 100f;
 
+    [SerializeField] AudioClip _minigameErrorSFX;
+    [SerializeField] AudioClip _minigameWinSFX;
+    [SerializeField] AudioClip _minigameTickSFX;
+
     bool isSliding = false;
     bool isDirectionUp = true;
     float amtSlider = 0.0f;
@@ -61,6 +65,8 @@ public class SweetSpot : MonoBehaviour
             }
         }
 
+        if(_sliderRef.value % 2 == 0) AudioManager.Instance.PlaySound2D(_minigameTickSFX, .5f, UnityEngine.Random.Range(0.95f,1.05f));
+
         _sliderRef.value = amtSlider;
 
     }
@@ -79,11 +85,13 @@ public class SweetSpot : MonoBehaviour
         if (amtSlider >= 48 && amtSlider <= 52)
         {
             Debug.Log("Nice! Extra Dice!");
+            AudioManager.Instance.PlaySound2D(_minigameWinSFX,1);
             _SMRef.SetExtraDice(1);
         }
         else
         {
             Debug.Log("Booo... No Dice For Losers!");
+            AudioManager.Instance.PlaySound2D(_minigameErrorSFX, 1);
             _SMRef.SetExtraDice(0);
         }
 
